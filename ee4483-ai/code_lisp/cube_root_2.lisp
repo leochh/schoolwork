@@ -31,4 +31,4 @@
                        (format t "~5,10f~%" oldxn)
                        (rec (- xn (/ (- (* xn xn xn) num)
                                      (* (* xn xn) 3))))))))
-        (rec 1)))))
+        (rec 50)))))
