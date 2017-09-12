@@ -6,18 +6,18 @@
 % Rs=40;
 
 % -------------------------Q7.2/Q7.7
-fs=3500;
-Wp=1050/fs*2;
-Ws=600/fs*2;
-Rp=1;
-Rs=50;
-
-% -------------------------Q7.3
-% fs=7000;
-% Wp=[1400 2100]/fs*2;
-% Ws=[1050 2450]/fs*2;
-% Rp=0.4;
+% fs=3500;
+% Wp=1050/fs*2;
+% Ws=600/fs*2;
+% Rp=1;
 % Rs=50;
+
+% -------------------------Q7.3/Q7.8
+fs=7000;
+Wp=[1400 2100]/fs*2;
+Ws=[1050 2450]/fs*2;
+Rp=0.4;
+Rs=50;
 
 % -------------------------Q7.4
 % fs=12000;
@@ -45,28 +45,34 @@ Rs=50;
 % [num,den]=cheby1(n2,Rp,Wp);
 
 % -------------------------Q7.7
-[n3,Wn3]=cheb2ord(Wp,Ws,Rp,Rs);
-[num,den]=cheby1(n2,Rs,Ws,'high');
+% [n3,Wn3]=cheb2ord(Wp,Ws,Rp,Rs);
+% [num,den]=cheby2(n3,Rs,Ws,'high');
+
+% -------------------------Q7.8
+[n4,Wn4]=ellipord(Wp,Ws,Rp,Rs);
+[num,den]=ellip(n4,Rp,Rs,Wp);
 
 disp('Numerator coefficients are: ');disp(num);
 disp('Denominator coefficients are: ');disp(den);
 
-[g,w,p]=gain(num,den);
+[g,w,p_rad]=gain(num,den);
 
-plot(w/pi,g);grid 
+% -------------------------------------Amplitude Response
+plot(w/pi,g);
+
+grid 
 axis([0 1 -60 5]);
 xlabel('\omega /\pi');
 ylabel('Gain, dB');
 title('Gain Response of a Butterworth Bandstop Filter');
 
-% disp(p);
-% plot(w/pi,p);grid
-% axis([0 1 -10*pi 0.5*pi]);
+% -------------------------------------Phase Response
+% disp(p_rad);
+% p=(p_rad/(2*pi))*360;
+% plot(w/pi,p);
+% 
+% grid
+% axis([0 1 -720 100]);
 % xlabel('\omega /\pi');
-% ylabel('Phase, radians');
+% ylabel('Phase, deg');
 % title('Phase Response');
-
-
-
-
-
