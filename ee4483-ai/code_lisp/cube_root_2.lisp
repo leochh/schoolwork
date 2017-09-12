@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 (defun cube_root()
   (let ((num 0)
         (precision))
@@ -33,7 +32,6 @@
                        (rec (- xn (/ (- (* xn xn xn) num)
                                      (* (* xn xn) 3))))))))
         (rec 1)))))
-=======
 (defun cube_root()
   (let ((num 0)
         (precision))
@@ -68,4 +66,3 @@
                        (rec (- xn (/ (- (* xn xn xn) num)
                                      (* (* xn xn) 3))))))))
         (rec 50)))))
->>>>>>> 8180abb0c4dae87473f09035b37cc92bba39d117
