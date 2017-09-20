@@ -1,9 +1,12 @@
+import math
+
 num_str = input("Enter a number: ")
 precision_str = input("Enter a precision: ")
 num = float(num_str)
-precision = float(precision_str)
+precision = math.pow(0.1,float(precision_str))
 
 def compute(low, high, oldmid, mid):
+    t = 0
     while abs(oldmid - mid) > precision:
         oldmid = mid
         midcube = mid * mid * mid
@@ -18,7 +21,8 @@ def compute(low, high, oldmid, mid):
             else:
                 low = mid
         mid = (low + high) / 2
-        print(mid)
+        t += 1
+        print(str(t) + " " + str(mid))
 
 if abs(num)>=1:
     low = 0
