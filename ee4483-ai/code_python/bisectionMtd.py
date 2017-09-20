@@ -1,7 +1,7 @@
 import math
 
 num_str = input("Enter a number: ")
-precision_str = input("Enter a precision: ")
+precision_str = input("Enter the number of precision digit(integer): ")
 num = float(num_str)
 precision = math.pow(0.1,float(precision_str))
 
@@ -37,4 +37,5 @@ else:
     else:
         high = -1
     mid = (low + high) / 2
+
 compute(low, high, oldmid, mid)
