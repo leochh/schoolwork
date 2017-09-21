@@ -174,3 +174,21 @@
 * Complexity Analysis
 
 ** Bisection method
+   Define the time complexity is dependent on the required precision digit N. For
+   example, a number 1.12345 with precision digit N=3 means the previous 3 digits after
+   decimal point .123 are accurate. 
+   
+   Considering the worst case to determine one digit, for example, the current
+   states are $x_{low_0} = 1.0$, $x_{high_0} = 2.0$ and the first accurate digit is 1.1.
+   
+   By definition $x_{mid_0} = \frac{x_{high_0} + x_{low_0}}{2}$, we can find
+   $x_{mid_0} = 1.5$. Applying the same algorithm we can get $x_{mid_1} = 1.25$,
+   $x_{mid_2} = 1.125$, $x_{mid_3} = 1.0625$, $x_{mid_4} = 1.09375$, $x_{mid_5}
+   = 1.109375$. This shows that for the worst case, to find the interval where
+   the accurate digit lies the program need to iterate 6 times to find the
+   accurate digit. If the precision digit is N, then it needs at least 6N times
+   to find the interval which satisfied the requirment. This indicates the time
+   complexity of bisection method is O(N).
+
+** Newton-Raphson method
+   
