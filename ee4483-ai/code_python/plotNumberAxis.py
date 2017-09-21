@@ -76,6 +76,7 @@ for t in xarray:
     ax.text(t-0.1,-30,r'$x_{%s}$' % m)
     m += 1
 
+ax.text(np.cbrt(x0)-0.3,15,r'$x_r = \sqrt[3]{x_0}$')
 y = f(xcood)
 plt.plot(xcood, y)
 

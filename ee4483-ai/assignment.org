@@ -135,6 +135,7 @@
         ax.text(t-0.1,-30,r'$x_{%s}$' % m)
         m += 1
 
+    ax.text(np.cbrt(x0)-0.3,15,r'$x_r = \sqrt[3]{x_0}$')   
     y = f(xcood)
     plt.plot(xcood, y)
 
@@ -145,3 +146,31 @@
 
    #+RESULTS:
    [[file:numberAxis3.png]]
+
+   Let $x_r = \sqrt[3]{x_0}$, so $f(x_r) = 0 ----~Eq.1$
+
+   Given $x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} ----~Eq.2$
+   
+   By Taylor Series,
+   $$f(x_r) = f(x_n) + f'(x_n)(x_r - x_n) + \frac{f''(x_n)}{2!}(x_r-x_n)^2 + \frac{f'''(x_n)}{3!}(x_r-x_n)^3+\cdots$$
+   
+   Here I use the previous 3 items as the dominant polynomials.
+
+   Let $f(x_r) \approx f(x_n) + f'(x_n)(x_r - x_n) + \frac{f''(x_n)}{2!}(x_r-x_n)^2 ----~Eq.3$
+
+   Substitute Eq.1 and Eq.2 into Eq.3,
+
+   $\Rightarrow 0 = f'(x_n)(x_n - x_{n+1}) + f'(x_n)(x_r - x_n) + \frac{f''(x_n)}{2!}(x_r-x_n)^2$
+
+   $\Rightarrow x_{n+1} - x_r = \frac{f''(x_n)}{2!}(x_r-x_n)^2$
+
+   Let error $e_n = x_n -x_r$,
+
+   $\Rightarrow e_{n+1} = \frac{f''(x_n)}{2f'(x_n)}e^2_n$
+
+   The last equation tells that after each iteration, the error in new estimate
+   is proportional to the square of the old estimate. That means the precision digits will double for each iteration.
+
+* Complexity Analysis
+
+** Bisection method

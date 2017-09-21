@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-21 Thu 12:49 -->
+<!-- 2017-09-21 Thu 13:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -255,27 +255,32 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org48b2b71">1. Algorithm Description</a>
+<li><a href="#org3ab8231">1. Algorithm Description</a>
 <ul>
-<li><a href="#org488cc11">1.1. Bisection method</a></li>
-<li><a href="#org25cd5d4">1.2. Newton-Raphson method</a></li>
+<li><a href="#org944b56b">1.1. Bisection method</a></li>
+<li><a href="#org17efae5">1.2. Newton-Raphson method</a></li>
 </ul>
 </li>
-<li><a href="#orgad5cbc2">2. Proof</a>
+<li><a href="#orgb94c5cc">2. Proof</a>
 <ul>
-<li><a href="#orga75211c">2.1. Bisection method</a></li>
-<li><a href="#org9e4507e">2.2. Newton-Raphson method</a></li>
+<li><a href="#org2ef9bdf">2.1. Bisection method</a></li>
+<li><a href="#org9ce93bf">2.2. Newton-Raphson method</a></li>
+</ul>
+</li>
+<li><a href="#org530c110">3. Complexity Analysis</a>
+<ul>
+<li><a href="#org6259602">3.1. Bisection method</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org48b2b71" class="outline-2">
-<h2 id="org48b2b71"><span class="section-number-2">1</span> Algorithm Description</h2>
+<div id="outline-container-org3ab8231" class="outline-2">
+<h2 id="org3ab8231"><span class="section-number-2">1</span> Algorithm Description</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org488cc11" class="outline-3">
-<h3 id="org488cc11"><span class="section-number-3">1.1</span> Bisection method</h3>
+<div id="outline-container-org944b56b" class="outline-3">
+<h3 id="org944b56b"><span class="section-number-3">1.1</span> Bisection method</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The bisection method in mathematics is a root-finding method that repeatedly
@@ -284,8 +289,8 @@ in which a root must lie for further processing.
 </p>
 </div>
 </div>
-<div id="outline-container-org25cd5d4" class="outline-3">
-<h3 id="org25cd5d4"><span class="section-number-3">1.2</span> Newton-Raphson method</h3>
+<div id="outline-container-org17efae5" class="outline-3">
+<h3 id="org17efae5"><span class="section-number-3">1.2</span> Newton-Raphson method</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 The Newton-Raphson method is a method for finding successively better
@@ -296,12 +301,12 @@ Newton-Raphson method: \[x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}\]
 </div>
 </div>
 
-<div id="outline-container-orgad5cbc2" class="outline-2">
-<h2 id="orgad5cbc2"><span class="section-number-2">2</span> Proof</h2>
+<div id="outline-container-orgb94c5cc" class="outline-2">
+<h2 id="orgb94c5cc"><span class="section-number-2">2</span> Proof</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orga75211c" class="outline-3">
-<h3 id="orga75211c"><span class="section-number-3">2.1</span> Bisection method</h3>
+<div id="outline-container-org2ef9bdf" class="outline-3">
+<h3 id="org2ef9bdf"><span class="section-number-3">2.1</span> Bisection method</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Assume the given number X<sub>0</sub> is positive. Because the symmetry of the positive
@@ -356,21 +361,76 @@ Repeat step A or B until \(|x_{mid_{n+1}} - x_{mid_n}| < precision~error\)
 </p>
 </div>
 </div>
-<div id="outline-container-org9e4507e" class="outline-3">
-<h3 id="org9e4507e"><span class="section-number-3">2.2</span> Newton-Raphson method</h3>
+<div id="outline-container-org9ce93bf" class="outline-3">
+<h3 id="org9ce93bf"><span class="section-number-3">2.2</span> Newton-Raphson method</h3>
 <div class="outline-text-3" id="text-2-2">
 
 <div class="figure">
 <p><img src="numberAxis3.png" alt="numberAxis3.png" />
 </p>
 </div>
+
+<p>
+Let \(x_r = \sqrt[3]{x_0}\), so \(f(x_r) = 0 ----~Eq.1\)
+</p>
+
+<p>
+Given \(x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} ----~Eq.2\)
+</p>
+
+<p>
+By Taylor Series,
+\[f(x_r) = f(x_n) + f'(x_n)(x_r - x_n) + \frac{f''(x_n)}{2!}(x_r-x_n)^2 + \frac{f'''(x_n)}{3!}(x_r-x_n)^3+\cdots\]
+</p>
+
+<p>
+Here I use the previous 3 items as the dominant polynomials.
+</p>
+
+<p>
+Let \(f(x_r) \approx f(x_n) + f'(x_n)(x_r - x_n) + \frac{f''(x_n)}{2!}(x_r-x_n)^2 ----~Eq.3\)
+</p>
+
+<p>
+Substitute Eq.1 and Eq.2 into Eq.3,
+</p>
+
+<p>
+\(\Rightarrow 0 = f'(x_n)(x_n - x_{n+1}) + f'(x_n)(x_r - x_n) + \frac{f''(x_n)}{2!}(x_r-x_n)^2\)
+</p>
+
+<p>
+\(\Rightarrow x_{n+1} - x_r = \frac{f''(x_n)}{2!}(x_r-x_n)^2\)
+</p>
+
+<p>
+Let error \(e_n = x_n -x_r\),
+</p>
+
+<p>
+\(\Rightarrow e_{n+1} = \frac{f''(x_n)}{2f'(x_n)}e^2_n\)
+</p>
+
+<p>
+The last equation tells that after each iteration, the error in new estimate
+is proportional to the square of the old estimate. That means the precision digits will double for each iteration.
+</p>
 </div>
+</div>
+</div>
+
+<div id="outline-container-org530c110" class="outline-2">
+<h2 id="org530c110"><span class="section-number-2">3</span> Complexity Analysis</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org6259602" class="outline-3">
+<h3 id="org6259602"><span class="section-number-3">3.1</span> Bisection method</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: seanhxx</p>
-<p class="date">Created: 2017-09-21 Thu 12:49</p>
+<p class="date">Created: 2017-09-21 Thu 13:58</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
