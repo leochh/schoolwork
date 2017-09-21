@@ -1,4 +1,4 @@
-% Created 2017-09-22 Fri 00:18
+% Created 2017-09-22 Fri 00:27
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper]{scrartcl}
 \usepackage[utf8]{inputenc}
@@ -48,22 +48,22 @@ REPORT \\
 
 \newpage
 \section{Algorithm Description}
-\label{sec:org74dd27f}
+\label{sec:org9dce6dd}
 \subsection{Bisection method}
-\label{sec:org4a0bc4b}
+\label{sec:org39992b2}
 The bisection method in mathematics is a root-finding method that repeatedly
 bisects an interval and then selects a subinterval in which a subinterval
 in which a root must lie for further processing.
 \subsection{Newton-Raphson method}
-\label{sec:orgf99cf3b}
+\label{sec:orge994705}
 The Newton-Raphson method is a method for finding successively better
 approximations to the roots of a real-valued function. The formula of
 Newton-Raphson method is $$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$
 
 \section{Proof}
-\label{sec:orgd1faf02}
+\label{sec:org13a16fe}
 \subsection{Bisection method}
-\label{sec:org02a362d}
+\label{sec:orgb136c2b}
 Firstly I assume the given number \(X_0\) is positive. Because the symmetry of
 the positive and negative number on number axis, the algorithm should work
 for negative number as long as it works for positive number.
@@ -99,7 +99,7 @@ then let \(x_{high_2} = x_{mid_1}\), \(x_{low_2} = x_{low_1} = x_{mid_0}\), \(x_
 Repeat step A or B until \(|x_{mid_{n+1}} - x_{mid_n}| < precision~error\)
 
 \subsection{Newton-Raphson method}
-\label{sec:org59fddc5}
+\label{sec:orgf0fdb9f}
 \begin{center}
 \includegraphics[width=.9\linewidth]{numberAxis3.png}
 \end{center}
@@ -130,10 +130,10 @@ is proportional to the square of the old estimate. That means the precision
 digits will double for each iteration.
 
 \section{Complexity Analysis}
-\label{sec:orgda7b128}
+\label{sec:orgc5b4955}
 
 \subsection{Bisection method}
-\label{sec:org5d6b0b0}
+\label{sec:orgcde5789}
 Here I define the time complexity is dependent on the required precision
 digit N. For example, 1.12345 with precision digit N=3 means the first 3
 digits after decimal point .123 are accurate.
@@ -152,17 +152,16 @@ required precision interval, which means the time complexity of bisection
 method is \(O(N)\).
 
 \subsection{Newton-Raphson method}
-\label{sec:orgbad55a3}
+\label{sec:orgb1cc7c7}
 The Eq.4 \(e_{n+1} = \frac{f''(x_n)}{2f'(x_n)}e^2_n\) shows that the precision
 digits will double after each iteration. For example, if the error for the
 1st time iteration is 0.1(N=1), the error for the 2nd and 3rd time iteration
 will be 0.1\(^{\text{2}}\) = 0.01(N=2) and 0.0001(N=2\(^{\text{2}}\)). So after t times of iteration,
-the precision digits is proportional to the square of t: \(N \propto 2^t\). If
-ignoring the affect of the initial value \(x_0\), the time complexity of
-Newton-Raphson method is \(O(\log_2 N)\)
+it shows \(N \propto 2^t\). If ignoring the affect of the initial value \(x_0\),
+the time complexity of Newton-Raphson method is \(O(\log_2 N)\)
 
 \section{Conclusion}
-\label{sec:org6745239}
+\label{sec:orge3c2a37}
 After several times of experiment, the results show that with the increasing
 number of precision digits N, the total number of iterations for
 bisection method is proportional to N. 

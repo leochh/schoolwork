@@ -219,9 +219,8 @@
    digits will double after each iteration. For example, if the error for the
    1st time iteration is 0.1(N=1), the error for the 2nd and 3rd time iteration
    will be 0.1^2 = 0.01(N=2) and 0.0001(N=2^2). So after t times of iteration,
-   the precision digits is proportional to the square of t: $N \propto 2^t$. If
-   ignoring the affect of the initial value $x_0$, the time complexity of
-   Newton-Raphson method is $O(\log_2 N)$
+   it shows $N \propto 2^t$. If ignoring the affect of the initial value $x_0$,
+   the time complexity of Newton-Raphson method is $O(\log_2 N)$
 
 * Conclusion
   After several times of experiment, the results show that with the increasing
