@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-21 Thu 13:58 -->
+<!-- 2017-09-21 Thu 22:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -255,32 +255,34 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3ab8231">1. Algorithm Description</a>
+<li><a href="#org9921056">1. Algorithm Description</a>
 <ul>
-<li><a href="#org944b56b">1.1. Bisection method</a></li>
-<li><a href="#org17efae5">1.2. Newton-Raphson method</a></li>
+<li><a href="#org10d62b6">1.1. Bisection method</a></li>
+<li><a href="#orgc2d6907">1.2. Newton-Raphson method</a></li>
 </ul>
 </li>
-<li><a href="#orgb94c5cc">2. Proof</a>
+<li><a href="#org3c70964">2. Proof</a>
 <ul>
-<li><a href="#org2ef9bdf">2.1. Bisection method</a></li>
-<li><a href="#org9ce93bf">2.2. Newton-Raphson method</a></li>
+<li><a href="#orgd9ce219">2.1. Bisection method</a></li>
+<li><a href="#org60c87b0">2.2. Newton-Raphson method</a></li>
 </ul>
 </li>
-<li><a href="#org530c110">3. Complexity Analysis</a>
+<li><a href="#orgdac9392">3. Complexity Analysis</a>
 <ul>
-<li><a href="#org6259602">3.1. Bisection method</a></li>
+<li><a href="#org437da5a">3.1. Bisection method</a></li>
+<li><a href="#org92a5f0e">3.2. Newton-Raphson method</a></li>
 </ul>
 </li>
+<li><a href="#org3f4e5f7">4. Conclusion</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3ab8231" class="outline-2">
-<h2 id="org3ab8231"><span class="section-number-2">1</span> Algorithm Description</h2>
+<div id="outline-container-org9921056" class="outline-2">
+<h2 id="org9921056"><span class="section-number-2">1</span> Algorithm Description</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org944b56b" class="outline-3">
-<h3 id="org944b56b"><span class="section-number-3">1.1</span> Bisection method</h3>
+<div id="outline-container-org10d62b6" class="outline-3">
+<h3 id="org10d62b6"><span class="section-number-3">1.1</span> Bisection method</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The bisection method in mathematics is a root-finding method that repeatedly
@@ -289,8 +291,8 @@ in which a root must lie for further processing.
 </p>
 </div>
 </div>
-<div id="outline-container-org17efae5" class="outline-3">
-<h3 id="org17efae5"><span class="section-number-3">1.2</span> Newton-Raphson method</h3>
+<div id="outline-container-orgc2d6907" class="outline-3">
+<h3 id="orgc2d6907"><span class="section-number-3">1.2</span> Newton-Raphson method</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 The Newton-Raphson method is a method for finding successively better
@@ -301,12 +303,12 @@ Newton-Raphson method: \[x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}\]
 </div>
 </div>
 
-<div id="outline-container-orgb94c5cc" class="outline-2">
-<h2 id="orgb94c5cc"><span class="section-number-2">2</span> Proof</h2>
+<div id="outline-container-org3c70964" class="outline-2">
+<h2 id="org3c70964"><span class="section-number-2">2</span> Proof</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org2ef9bdf" class="outline-3">
-<h3 id="org2ef9bdf"><span class="section-number-3">2.1</span> Bisection method</h3>
+<div id="outline-container-orgd9ce219" class="outline-3">
+<h3 id="orgd9ce219"><span class="section-number-3">2.1</span> Bisection method</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Assume the given number X<sub>0</sub> is positive. Because the symmetry of the positive
@@ -361,8 +363,8 @@ Repeat step A or B until \(|x_{mid_{n+1}} - x_{mid_n}| < precision~error\)
 </p>
 </div>
 </div>
-<div id="outline-container-org9ce93bf" class="outline-3">
-<h3 id="org9ce93bf"><span class="section-number-3">2.2</span> Newton-Raphson method</h3>
+<div id="outline-container-org60c87b0" class="outline-3">
+<h3 id="org60c87b0"><span class="section-number-3">2.2</span> Newton-Raphson method</h3>
 <div class="outline-text-3" id="text-2-2">
 
 <div class="figure">
@@ -408,29 +410,82 @@ Let error \(e_n = x_n -x_r\),
 </p>
 
 <p>
-\(\Rightarrow e_{n+1} = \frac{f''(x_n)}{2f'(x_n)}e^2_n\)
+\(\Rightarrow e_{n+1} = \frac{f''(x_n)}{2f'(x_n)}e^2_n ----~Eq.4\)
 </p>
 
 <p>
 The last equation tells that after each iteration, the error in new estimate
-is proportional to the square of the old estimate. That means the precision digits will double for each iteration.
+is proportional to the square of the old estimate. That means the precision
+digits will double for each iteration.
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org530c110" class="outline-2">
-<h2 id="org530c110"><span class="section-number-2">3</span> Complexity Analysis</h2>
+<div id="outline-container-orgdac9392" class="outline-2">
+<h2 id="orgdac9392"><span class="section-number-2">3</span> Complexity Analysis</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org6259602" class="outline-3">
-<h3 id="org6259602"><span class="section-number-3">3.1</span> Bisection method</h3>
+<div id="outline-container-org437da5a" class="outline-3">
+<h3 id="org437da5a"><span class="section-number-3">3.1</span> Bisection method</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Define the time complexity is dependent on the required precision digit N. For
+example, a number 1.12345 with precision digit N=3 means the previous 3 digits after
+decimal point .123 are accurate. 
+</p>
+
+<p>
+Considering the worst case to determine one digit, for example, the current
+states are \(x_{low_0} = 1.0\), \(x_{high_0} = 2.0\) and the first accurate digit is 1.1.
+</p>
+
+<p>
+By definition \(x_{mid_n} = \frac{x_{high_n} + x_{low_n}}{2}\), we can find
+\(x_{mid_0} = 1.5\). Applying the same algorithm we can get \(x_{mid_1} = 1.25\),
+\(x_{mid_2} = 1.125\), \(x_{mid_3} = 1.0625\), \(x_{mid_4} = 1.09375\), \(x_{mid_5}
+   = 1.109375\). This shows that for the worst case, the program need to iterate
+6 times to determine the accurate digit. If the precision digit is N, then it
+needs at least 6N times to find the interval which satisfied the requirement.
+This indicates the time complexity of bisection method is \(O(N)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org92a5f0e" class="outline-3">
+<h3 id="org92a5f0e"><span class="section-number-3">3.2</span> Newton-Raphson method</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+The Eq.4 \(\Rightarrow e_{n+1} = \frac{f''(x_n)}{2f'(x_n)}e^2_n\) shows that
+the precision digits will double for each iteration. For example, if the
+error for the 1st time iteration is 0.1(N=2), the error for the next time
+iteration is 0.1<sup>2</sup> = 0.01(N=2) and 3rd time is 0.0001(N=2<sup>2</sup>). So after t
+times iteration the number of precision digits \(N \propto 2^t\) if ignoring
+the affect of the initial value. Thus the time complexity of Newton-Raphson
+method is \(O(\log_2 N)\)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3f4e5f7" class="outline-2">
+<h2 id="org3f4e5f7"><span class="section-number-2">4</span> Conclusion</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+After several times experiment, it shows that with the increasing number of
+precision digits N, the total number of times of execution for bisection
+method is increasing significantly. For Newton-Raphson method, the number of
+times of execution increases limited. However, the Eq.4 shows that the error
+of next iteration is also dependent on the previous input value \(x_n\), which
+means the initial value has a significant influence on the time complexity of
+Newton-Raphson method.
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: seanhxx</p>
-<p class="date">Created: 2017-09-21 Thu 13:58</p>
+<p class="date">Created: 2017-09-21 Thu 22:02</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

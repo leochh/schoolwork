@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-fig = plt.figure()
+fig = plt.figure(figsize=(8,3.5))
 ax = fig.add_subplot(111)
 
 # -------Plot x>1 number axis-----------#
