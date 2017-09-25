@@ -76,11 +76,15 @@ def strategyAnalysis(_currentBoard, _currentPlayer, _depth):
         return line_score
 
     def generateNewBoard(step):
-        tempBoard = _currentBoard
+        print("board checking 1")
+        print(_currentBoard)
+        tempBoard = [row[:] for row in _currentBoard]
         if _currentPlayer == "X":
             tempBoard[step[0]][step[1]] = 1
         elif _currentPlayer == "O":
             tempBoard[step[0]][step[1]] = -1
+        print("board checking 2")
+        print(_currentBoard)
         return tempBoard
 
     nextPossibleMoves = []
@@ -94,11 +98,16 @@ def strategyAnalysis(_currentBoard, _currentPlayer, _depth):
     print(_depth)
     if nextPossibleMoves == [] or _depth == -1:
         print("terminate {}".format(_depth))
-        return [None,0]
+        return [[],0]
     else:
         for step_move in nextPossibleMoves:
+            print("generating board")
+            print(_currentBoard)
             newBoard = generateNewBoard(step_move)
+            print("The new board is")
             print(newBoard)
+            print("generation done")
+            print(_currentBoard)
             single_step_move_scores = evalCurrentBoard(newBoard)
             print(single_step_move_scores)
 
@@ -109,8 +118,12 @@ def strategyAnalysis(_currentBoard, _currentPlayer, _depth):
                     optimized_scores = total_step_move_scores
                     optimized_move = step_move
             elif _currentPlayer == "O":
+                print("cb before is:")
+                print(_currentBoard)
                 total_step_move_scores = single_step_move_scores + \
                                          strategyAnalysis(newBoard, "X", _depth - 1)[1]
+                print("cb after is:")
+                print(_currentBoard)
                 if total_step_move_scores < optimized_scores:
                     optimized_scores = total_step_move_scores
                     optimized_move = step_move
