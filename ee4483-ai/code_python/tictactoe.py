@@ -28,33 +28,32 @@ def readBoard(input_line):
 player = input()
 currentBoard = [readBoard(input().strip()) for i in range(3)]
 
-
-def strategyAnalysis(_currentBoard, _currentPlayer, _depth, previous_aorb):
+def strategyAnalysis(_currentBoard, _currentPlayer, _depth, previous_aorb, counter):
 
     def evalCurrentBoard(_cB):
 
         def evalLine(p1,p2,p3):
             scores = 0
-            if p1+p2+p3 == 0:
-                scores = 0
-            elif p1+p2+p3 == 3:
+            # if p1+p2+p3 == 0:
+            #     scores = 0
+            if p1+p2+p3 == 3:
                 scores = 2000
-            elif p1+p2+p3 == 2:
-                scores = 100
-            elif p1+p2+p3 == 1:
-                if abs(p1)+abs(p2)+abs(p3) == 1:
-                    scores = 10
-                elif abs(p1)+abs(p2)+abs(p3) == 3:
-                    scores = 0
-            elif p1+p2+p3 == -3:
+            # elif p1+p2+p3 == 2:
+            #     scores = 100
+            # elif p1+p2+p3 == 1:
+            #     if abs(p1)+abs(p2)+abs(p3) == 1:
+            #         scores = 10
+            #     elif abs(p1)+abs(p2)+abs(p3) == 3:
+            #         scores = 0
+            if p1+p2+p3 == -3:
                 scores = -2000
-            elif p1+p2+p3 == -2:
-                scores = -100
-            elif p1+p2+p3 == -1:
-                if abs(p1)+abs(p2)+abs(p3) == 1:
-                    scores = -10
-                elif abs(p1)+abs(p2)+abs(p3) == 3:
-                    scores = 0
+            # elif p1+p2+p3 == -2:
+            #     scores = -100
+            # elif p1+p2+p3 == -1:
+            #     if abs(p1)+abs(p2)+abs(p3) == 1:
+            #         scores = -10
+            #     elif abs(p1)+abs(p2)+abs(p3) == 3:
+            #         scores = 0
             return scores
 
         line_score = 0
@@ -87,7 +86,8 @@ def strategyAnalysis(_currentBoard, _currentPlayer, _depth, previous_aorb):
                 nextPossibleMoves.append([r,c])
 
     if nextPossibleMoves == [] or _depth == -1 or checkWin():
-        return [[], evalCurrentBoard(_currentBoard), previous_aorb]
+        counter = counter + 1
+        return [[], evalCurrentBoard(_currentBoard), previous_aorb, counter]
     else:
         optimized_move = None
         if _currentPlayer == "X":
@@ -95,31 +95,35 @@ def strategyAnalysis(_currentBoard, _currentPlayer, _depth, previous_aorb):
             _beta = previous_aorb  # Assign previous Min to current beta
             for current_move in nextPossibleMoves:
                 # Only the second returned value is used as the current_move_score
-                current_move_score = strategyAnalysis(generateNewBoard(current_move), "O", _depth-1, _alpha)[1]
+                return_array = strategyAnalysis(generateNewBoard(current_move), "O", _depth-1, _alpha, counter)
+                current_move_score = return_array[1]
+                counter = return_array[3]
                 if _alpha < current_move_score:
                     _alpha = current_move_score
                     optimized_move = current_move
                     if _alpha > _beta:
                         break
-            return [optimized_move, _alpha, _beta]
+            return [optimized_move, _alpha, _beta, counter]
         elif _currentPlayer == "O":
             _beta = 10000  # Set local beta for current Min and pass to next Max
             _alpha = previous_aorb  # Assign previous Max to current alpha
             for current_move in nextPossibleMoves:
                 # Only the second returned value is used as the current_move_score
-                current_move_score = strategyAnalysis(generateNewBoard(current_move), "X", _depth-1, _beta)[1]
+                return_array = strategyAnalysis(generateNewBoard(current_move), "X", _depth-1, _beta, counter)
+                current_move_score = return_array[1]
+                counter = return_array[3]
                 if _beta > current_move_score:
                     _beta = current_move_score
                     optimized_move = current_move
                     if _alpha > _beta:
                         break
-            return [optimized_move, _beta, _alpha]
+            return [optimized_move, _beta, _alpha, counter]
 
 
 def play(_cBoard, _cPlayer, _turns):
     print("Turn {}".format(_turns))
     if _cPlayer == "X":
-        nextStrategy = strategyAnalysis(_cBoard, _cPlayer, 2, 10000)
+        nextStrategy = strategyAnalysis(_cBoard, _cPlayer, 8, 10000, 0)
         print(nextStrategy)
         nextStep = nextStrategy[0]
         if nextStep:
@@ -130,7 +134,7 @@ def play(_cBoard, _cPlayer, _turns):
         else:
             return print("Game Over!")
     elif _cPlayer == "O":
-        nextStrategy = strategyAnalysis(_cBoard, _cPlayer, 2, -10000)
+        nextStrategy = strategyAnalysis(_cBoard, _cPlayer, 8, -10000, 0)
         print(nextStrategy)
         nextStep = nextStrategy[0]
         if nextStep:
