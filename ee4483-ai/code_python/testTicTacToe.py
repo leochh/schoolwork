@@ -1,5 +1,13 @@
-a = [[1,2,3],
-     [4,5,6],
-     [7,8,9]]
+def cal(t2):
+    r1 = 2/3 * t2
+    print("r1 is {}".format(r1))
+    r2 = 2/3 * (10 + t2 - ((10 * t2) / (10 + t2)))
+    print("r2 is {}".format(r2))
+    if t2 != ((r1 + r2) / 2):
+        t2 = (r1 + r2) / 2
+        print("t2 is {}".format(t2))
+        cal(t2)
+    else:
+        return True
 
-print(a[0][2])
+cal(5)

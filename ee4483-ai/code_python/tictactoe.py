@@ -34,26 +34,26 @@ def strategyAnalysis(_currentBoard, _currentPlayer, _depth, previous_aorb, count
 
         def evalLine(p1,p2,p3):
             scores = 0
-            # if p1+p2+p3 == 0:
-            #     scores = 0
-            if p1+p2+p3 == 3:
+            if p1+p2+p3 == 0:
+                scores = 0
+            elif p1+p2+p3 == 3:
                 scores = 2000
-            # elif p1+p2+p3 == 2:
-            #     scores = 100
-            # elif p1+p2+p3 == 1:
-            #     if abs(p1)+abs(p2)+abs(p3) == 1:
-            #         scores = 10
-            #     elif abs(p1)+abs(p2)+abs(p3) == 3:
-            #         scores = 0
-            if p1+p2+p3 == -3:
+            elif p1+p2+p3 == 2:
+                scores = 100
+            elif p1+p2+p3 == 1:
+                if abs(p1)+abs(p2)+abs(p3) == 1:
+                    scores = 10
+                elif abs(p1)+abs(p2)+abs(p3) == 3:
+                    scores = 0
+            elif p1+p2+p3 == -3:
                 scores = -2000
-            # elif p1+p2+p3 == -2:
-            #     scores = -100
-            # elif p1+p2+p3 == -1:
-            #     if abs(p1)+abs(p2)+abs(p3) == 1:
-            #         scores = -10
-            #     elif abs(p1)+abs(p2)+abs(p3) == 3:
-            #         scores = 0
+            elif p1+p2+p3 == -2:
+                scores = -100
+            elif p1+p2+p3 == -1:
+                if abs(p1)+abs(p2)+abs(p3) == 1:
+                    scores = -10
+                elif abs(p1)+abs(p2)+abs(p3) == 3:
+                    scores = 0
             return scores
 
         line_score = 0
