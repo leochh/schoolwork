@@ -50,10 +50,11 @@
 % b = remez(N, fts, mval, wgts)
 
 % --------------Q7.25
-% fpts = [0 0.25 0.3 0.45 0.5 1];
-% mval = [0.4 0.4 1 1 0.8 0.8];
-% N = 95;
-% b = fir2(N, fpts, mval)
+% fpts = [0 0.05 0.1 0.399 0.4 0.599 0.6 0.799 0.9 0.989 0.99 1];
+% mval = [0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 1 1 0 0];
+% N = 50;
+% b = fir2(N, fpts, mval, chebwin(N+1));
+% b = remez(N, fpts, mval);
 
 % --------------Q7.26
 % fcuts = [1200 1800 3600 4200];
@@ -70,19 +71,22 @@
 % b = remez(N, fpts, mval, wgts)
 
 % --------------Q7.27
-fcuts = [1500 1800 3000 3530];
-mags = [0 1 0];
-devs = [0.02 0.1 0.02];
-fsamp = 12000;
-[N, Wn, beta, ftype] = kaiserord(fcuts, mags, devs, fsamp);
+% fcuts = [1500 1800 3000 3530];
+% mags = [0 1 0];
+% devs = [0.02 0.1 0.02];
+% fsamp = 12000;
+% [N, Wn, beta, ftype] = kaiserord(fcuts, mags, devs, fsamp);
+% 
+% fpts = [0 1500 1800 3000 3530 fsamp/2]/(fsamp/2);
+% mval = [0 0 1 1 0 0];
+% dp = 0.1;
+% ds = 0.02;
+% wgts = max(dp, ds)*[1/ds, 1/dp, 1/ds];
+% b = remez(N, fpts, mval, wgts)
 
-fpts = [0 1500 1800 3000 3530 fsamp/2]/(fsamp/2);
-mval = [0 0 1 1 0 0];
-dp = 0.1;
-ds = 0.02;
-wgts = max(dp, ds)*[1/ds, 1/dp, 1/ds];
-b = remez(N, fpts, mval, wgts)
-freqz(b)
+% freqz(b)
+b = fir1(18,800/(2000/2),'high');
+impz(b, 1, 50)
 
 % [g,w,p_rad]=gain(b,1);
 % -------------------------------------Amplitude Response
