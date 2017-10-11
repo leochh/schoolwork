@@ -13,18 +13,18 @@ def writeBoard(gameboard):
     return gameGraph
 
 
-def readBoard(input_line):
-    line = list(input_line)
-    for n,i in enumerate(line):
-        if i == "_":
-            line[n] = 0
-        elif i == "X":
-            line[n] = 1
-        elif i == "O":
-            line[n] = -1
-    return line
+# def readBoard(input_line):
+#     line = list(input_line)
+#     for n,i in enumerate(line):
+#         if i == "_":
+#             line[n] = 0
+#         elif i == "X":
+#             line[n] = 1
+#         elif i == "O":
+#             line[n] = -1
+#     return line
 
-
+# Heuristic Evaluation Func
 def evalCurrentBoard(_cB):
 
     def evalLine(p1,p2,p3):
@@ -122,6 +122,7 @@ def strategyAnalysis(_currentBoard, _currentPlayer, _depth, previous_aorb, count
         counter = counter + 1
         return [[], evalCurrentBoard(_currentBoard), previous_aorb, counter]
     else:
+        # Minimax Algorithm
         optimized_move = None
         if _currentPlayer == "X":
             _alpha = -10000  # Set local alpha for current Max and pass to next Min
@@ -193,6 +194,7 @@ while turn < 9:
         break
     try:
         # print(turn)
+        # check if player is offensive or defensive
         if player == 'X' or player == 'x':
             while True:
                 next_decision = [int(i) for i in input("Input next step m n(seperated by space m,n<=2):").split(' ')]
