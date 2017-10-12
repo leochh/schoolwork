@@ -1,66 +1,83 @@
-#+LaTeX_CLASS: koma-article
-#+LaTeX_CLASS_OPTIONS: [setspace, doublespace]
-#+LATEX_CLASS_OPTIONS: [a4paper]
-#+LaTeX_HEADER: \usepackage{indentfirst}
-#+LaTeX_HEADER: \setlength{\parindent}{2em}
-#+LaTeX_HEADER: \setlength{\parskip}{1em}
-#+LaTeX_HEADER: \hypersetup{hidelinks=true}
-#+TITLE: \includegraphics[width=\textwidth]{logo_ntu_new.png} \\
-#+TITLE: [3\baselineskip]
-#+TITLE: ASSIGNMENT \\
-#+TITLE: REPORT \\
-#+TITLE: [7\baselineskip]
-#+AUTHOR: Hu Xiaoxiang \\
-#+AUTHOR: U1521319A \\
-#+AUTHOR: EEE \\
-#+DATE: Sep 21, 2017 \\
-
-\newpage
-* Algorithm Elaboration
-** Overview
-   My algorithm includes a heuristic measure and a Minimax searching method. The
-   heuristic evaluation function, which is used for evaluating the score for
-   every step, will give a weight on every decision the computer will make.
-   Higher the score is, more possible the decision is chose. Meanwhile, the
-   Minimax search algorithm can help to reduce the searching space for better
-   efficiency. The implementation will be explained later.
-** Heuristic Evaluation Function
-   In tic-tac-toe, there are 3 conditions for a place, which I define 0 for
-   empty, 1 for offensive player 'X' and -1 for defensive player 'O'. For
-   example, raw '_XO' is represented by array [0, 1, -1], which means empty for
-   1st place, offensive player's stone for middle place and defensive player's
-   stone for last place. 9 different situations of a raw are defined in this
-   heuristic evaluation function:
-   [p1, p2, p3] where p1,p2,p3 represent 3 places of a raw.
-   1. p1+p2+p3 == 0 
-      0 score is assigned to a raw if it is either empty or both player have only 1
-      piece in a row.
-   2. p1+p2+p3 == 3 or -3 
-      3 pieces of one player in a row represent the winning condition. The highest
-      score 2000 or lowest score -2000 is assigned for this condition.
-   3. p1+p2+p3 == 2 or -2
-      2 pieces of one player in a row. 100 or -100 is assigned.
-   4. p1+p2+p3 == 1 or -1 
-      There are 2 possibilities for this situation: 
-      a. one piece in a row: [1,0,0] 
-      b. 2 pieces of opponent player and one piece in a row: [1,1,-1] 
-      Obviously the first condition is more valuable. Thus 10 score is assigned 
-      for the first situation and 0 is assigned for the second situation.
-** Minimax Searching Algorithm With Alpha-Beta Pruning
+* Overview
+  My algorithm includes a heuristic measure and a Minimax searching method. The
+  heuristic evaluation function, which is used for evaluating the score for
+  every step, will give a weight on every decision the computer will make.
+  Higher the score is, more possible the decision is chose. Meanwhile, the
+  Minimax search algorithm can help to reduce the searching space for better
+  efficiency. The implementation will be explained later.
+* Heuristic Evaluation Function
+  In tic-tac-toe, there are 3 conditions for a place, which I define 0 for
+  empty, 1 for offensive player 'X' and -1 for defensive player 'O'. For
+  example, raw '_XO' is represented by array [0, 1, -1], which means empty for
+  1st place, offensive player's stone for middle place and defensive player's
+  stone for last place. 9 different situations of a raw are defined in this
+  heuristic evaluation function:
+  [p1, p2, p3] where p1,p2,p3 represent 3 places of a raw.
+  Rule 1. p1+p2+p3 == 0 
+     0 score is assigned to a raw if it is either empty or both player have only 1
+     piece in a row.
+  Rule 2. p1+p2+p3 == 3 or -3 
+     3 pieces of one player in a row represent the winning condition. The highest
+     score 2000 or lowest score -2000 is assigned for this condition.
+  Rule 3. p1+p2+p3 == 2 or -2
+     2 pieces of one player in a row. 100 or -100 is assigned.
+  Rule 4. p1+p2+p3 == 1 or -1 
+     There are 2 possibilities for this situation: 
+     a. one piece in a row: [1,0,0] 
+     b. 2 pieces of opponent player and one piece in a row: [1,1,-1] 
+     Obviously the first condition is more valuable. Thus 10 score is assigned 
+     for the first situation and 0 is assigned for the second situation.
+* Minimax Searching Algorithm With Alpha-Beta Pruning
+** Search Strategy
    In implementing Minimax algorithm, each level in search space according to
    whose move it is at that point in the game is labeld as Min or Max. For
    example, if the current player is offensive(X), it will be labeled as Max and
    require the maximum score of its children. 
-   
+
    For alpha-beta pruning, each node has alpha and beta representing the lower
    limit and upper limit respectively, e.p. [alpha, beta]. At Max node, alpha
    stores the current maximum value of its children and beta stores the current
    minimum value passed from its parent Min node. At Min node, beta stores the
    current minimum value of its children and alpha stores the current maxmium
    value passed from its parent Max node. Initially for each Max node -10000
-   (negative inifity) is assigned to alpha and for each Min node 10000 (positive
-   inifity) is assigned to beta. 
-   
-   Minimax searching method is similar to depth-first search. It will reach the 
-    
+   (negative infinity) is assigned to alpha and for each Min node 10000 (positive
+   infinity) is assigned to beta. 
+
+   Minimax search method is similar to depth-first search. It reaches the node
+   with furthest depth first and calculates the score of that node based on the
+   heuristic evaluation function. Next it compares the score with the rest of
+   nodes from the same parent and return the maximum or minimum value.
+   Continuing previous steps the algorithm compares the value of alpha and beta.
+   The search can be stopped if the new beta of a Min node is less than or equal
+   to its parent's alpha or the new alpha of a Max node is greater than or equal
+   to its parent's beta. By means of alpha-beta pruning, the search space can be
+   reduced significantly.
+** Complexity Analysis
+   Define the average number of branches is b and search depth is d. The worst
+   case is all nodes need to be evaluated without any pruning. Thus the
+   complexity is $\bigcirc(b^d)$. For the best case, all the first player's
+   moves must be evaluated to find the best one, but for each, only the best
+   second player's move is needed, and the complexity is about
+   $\bigcirc(b^{\frac{d}{2}})$
+* Advantages and Limitations
+  One of the benefits of alpha-beta pruning is it reduces the search space
+  significantly when comparing to simple minimax algorithm. In terms of code
+  complexity, minimax algorithm is simpler than a rule-based algorithm which
+  typically requires hundreds of rules to ensure the accuracy. 
+
+  The Limitation of minimax algorithm is the search space still needs to be
+  large enough to ensure the winning rate when the specified rules are not
+  sufficient. While if provided necessary rules, the search depth can be reduced
+  correspondingly.
+* Winning Situation
+  To be specific, if only rule 1 and 2 in the evaluation function are provided,
+  the search depth needs to be at least 7 to play without losing. While if all
+  of the 4 rules are given, then the search depth can be reduced to 2 or 3.
+
+* References
+  https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning
+* Appendix
+#+BEGIN_SRC python
+
+#+END_SRC    
     
