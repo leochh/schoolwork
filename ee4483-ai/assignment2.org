@@ -46,7 +46,21 @@
       b. 2 pieces of opponent player and one piece in a row: [1,1,-1] 
       Obviously the first condition is more valuable. Thus 10 score is assigned 
       for the first situation and 0 is assigned for the second situation.
-** Minimax Searching Algorithm
+** Minimax Searching Algorithm With Alpha-Beta Pruning
+   In implementing Minimax algorithm, each level in search space according to
+   whose move it is at that point in the game is labeld as Min or Max. For
+   example, if the current player is offensive(X), it will be labeled as Max and
+   require the maximum score of its children. 
    
+   For alpha-beta pruning, each node has alpha and beta representing the lower
+   limit and upper limit respectively, e.p. [alpha, beta]. At Max node, alpha
+   stores the current maximum value of its children and beta stores the current
+   minimum value passed from its parent Min node. At Min node, beta stores the
+   current minimum value of its children and alpha stores the current maxmium
+   value passed from its parent Max node. Initially for each Max node -10000
+   (negative inifity) is assigned to alpha and for each Min node 10000 (positive
+   inifity) is assigned to beta. 
+   
+   Minimax searching method is similar to depth-first search. It will reach the 
     
     
