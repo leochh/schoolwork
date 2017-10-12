@@ -1,120 +1,176 @@
-#+LaTeX_CLASS: koma-article
-#+LaTeX_CLASS_OPTIONS: [setspace, doublespace]
-#+LATEX_CLASS_OPTIONS: [a4paper]
-#+LaTeX_HEADER: \hypersetup{hidelinks=true}
-#+TITLE: \includegraphics[width=\textwidth]{logo_ntu_new.png} \\
-#+TITLE: [3\baselineskip]
-#+TITLE: ASSIGNMENT2 \\
-#+TITLE: REPORT \\
-#+TITLE: [7\baselineskip]
-#+AUTHOR: Hu Xiaoxiang \\
-#+AUTHOR: U1521319A \\
-#+AUTHOR: EEE \\
-#+DATE: 12 Oct, 2017 \\
+% Created 2017-10-12 Thu 22:59
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\hypersetup{hidelinks=true}
+\author{Hu Xiaoxiang \\
+U1521319A \\
+EEE \\
+}
+\date{12 Oct, 2017 \\
+}
+\title{\includegraphics[width=\textwidth]{logo_ntu_new.png} \\
+[3\baselineskip] ASSIGNMENT2 \\
+REPORT \\
+[7\baselineskip]}
+\hypersetup{
+ pdfauthor={Hu Xiaoxiang \\
+U1521319A \\
+EEE \\
+},
+ pdftitle={\includegraphics[width=\textwidth]{logo_ntu_new.png} \\
+[3\baselineskip] ASSIGNMENT2 \\
+REPORT \\
+[7\baselineskip]},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.1 (Org mode 9.1.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
 
 \newpage
-* Overview
-  This algorithm includes a heuristic measure function and a minimax search with
-  alpha-beta pruning. The heuristic evaluation function gives a weight on every
-  move the computer makes. Higher the score is, more possible the decision is
-  chose. Meanwhile, the alpha-beta pruning helps to reduce the search space so
-  as to provide higher search efficiency.
+\section{Overview}
+\label{sec:org5cb4fd9}
+This algorithm includes a heuristic measure function and a minimax search with
+alpha-beta pruning. The heuristic evaluation function gives a weight on every
+move the computer makes. Higher the score is, more possible the decision is
+chose. Meanwhile, the alpha-beta pruning helps to reduce the search space so
+as to provide higher search efficiency.
 
-* Heuristic Evaluation Function
-  In tic-tac-toe, there are 3 conditions for a place, which 0 is defined for
-  empty, 1 for offensive player's (X) stone and -1 for defensive player's (O)
-  stone. For example, row '_XO' is represented by array [0, 1, -1], which means
-  empty for first place, offensive player's stone at second place and defensive
-  player's stone at third place. 9 different situations are defined by 4 rules
-  in the heuristic evaluation function:
-  
-  Given array [p1, p2, p3], where p1,p2,p3 represent 3 places of a raw. 
-     |--------+---------------|
-     | Rule 1 | p1+p2+p3 == 0 |
-     |--------+---------------|
-  0 score is assigned if the row is empty or each of the player has 1 piece in a
-  row. The sequence of the pieces is not important.
-     |--------+---------------------|
-     | Rule 2 | p1+p2+p3 == 3 or -3 |
-     |--------+---------------------|
-  3 pieces of one player are in a row, which represents the winning situation.
-  The highest score 2000 or lowest score -2000 is assigned on this condition.
-     |--------+---------------------|
-     | Rule 3 | p1+p2+p3 == 2 or -2 |
-     |--------+---------------------|
-  2 pieces of one player are in a row. 100 or -100 score is assigned. 
-     |--------+---------------------|
-     | Rule 4 | p1+p2+p3 == 1 or -1 |
-     |--------+---------------------|
-  There are 2 possibilities for this situation: 
+\section{Heuristic Evaluation Function}
+\label{sec:org6f28281}
+In tic-tac-toe, there are 3 conditions for a place, which 0 is defined for
+empty, 1 for offensive player's (X) stone and -1 for defensive player's (O)
+stone. For example, row '\(_{\text{XO}}\)' is represented by array [0, 1, -1], which means
+empty for first place, offensive player's stone at second place and defensive
+player's stone at third place. 9 different situations are defined by 4 rules
+in the heuristic evaluation function:
 
-  a. 1 piece of current player in a row 
-  
-  b. 2 pieces of opponent player and 1 piece of current player in a row 
-  
-  Obviously the first situation is more valuable to current player. Thus 10
-  score is assigned for the first situation and 0 is assigned for the second
-  situation.
+Given array [p1, p2, p3], where p1,p2,p3 represent 3 places of a raw. 
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Rule 1 & p1+p2+p3 == 0\\
+\hline
+\end{tabular}
+\end{center}
+0 score is assigned if the row is empty or each of the player has 1 piece in a
+row. The sequence of the pieces is not important.
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Rule 2 & p1+p2+p3 == 3 or -3\\
+\hline
+\end{tabular}
+\end{center}
+3 pieces of one player are in a row, which represents the winning situation.
+The highest score 2000 or lowest score -2000 is assigned on this condition.
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Rule 3 & p1+p2+p3 == 2 or -2\\
+\hline
+\end{tabular}
+\end{center}
+2 pieces of one player are in a row. 100 or -100 score is assigned. 
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Rule 4 & p1+p2+p3 == 1 or -1\\
+\hline
+\end{tabular}
+\end{center}
+There are 2 possibilities for this situation: 
 
-  The total score is the sum of the 8 lines' score.
+a. 1 piece of current player in a row 
 
-* Minimax Searching Algorithm With Alpha-Beta Pruning
-** Search Strategy
-   In implementing minimax algorithm, each level in search space according to
-   whose move it is at that point is labeld as Min or Max. For example, if the
-   current player is offensive(X), it is labeled as Max and needs the maximum
-   score of its children.
+b. 2 pieces of opponent player and 1 piece of current player in a row 
 
-   For alpha-beta pruning, each node has alpha and beta which represent the
-   lower limit and upper limit respectively, e.p. [alpha, beta]. At Max node,
-   alpha stores the current maximum value of its children and beta stores the
-   current minimum value which is passed from its parent (Min). At Min node,
-   beta stores the current minimum value of its children and alpha stores the
-   current maxmium value which is passed from its parent (Max). Initially,
-   -10000 (negative infinity) is assigned to the alpha of each Max node and
-   10000 (positive infinity) is assigned to the beta of each Min node.
+Obviously the first situation is more valuable to current player. Thus 10
+score is assigned for the first situation and 0 is assigned for the second
+situation.
 
-   From beginning, the search strategy keeps looking down until it reaches the
-   node with maximum depth and calculates the score of that node based on the
-   heuristic evaluation function. Next, it compares the score with the rest of
-   nodes with the same parent and return the maximum or minimum value as alpha
-   or beta according to whose move it is.
+The total score is the sum of the 8 lines' score.
 
-   By repeating the previous two steps, the algorithm compares the value of
-   alpha and beta continuously. The search can be stopped if the new beta of a
-   Min node is less than or equal to its parent's alpha or the new alpha of a
-   Max node is greater than or equal to its parent's beta.
+\section{Minimax Searching Algorithm With Alpha-Beta Pruning}
+\label{sec:org935be9e}
+\subsection{Search Strategy}
+\label{sec:orgc4ad00c}
+In implementing minimax algorithm, each level in search space according to
+whose move it is at that point is labeld as Min or Max. For example, if the
+current player is offensive(X), it is labeled as Max and needs the maximum
+score of its children.
 
-** Complexity Analysis
-   The average number of branch is defined as b and search depth is defined as
-   d. The worst case is that all nodes need to be evaluated without any pruning.
-   Thus the complexity is $\bigcirc(b^d)$. 
+For alpha-beta pruning, each node has alpha and beta which represent the
+lower limit and upper limit respectively, e.p. [alpha, beta]. At Max node,
+alpha stores the current maximum value of its children and beta stores the
+current minimum value which is passed from its parent (Min). At Min node,
+beta stores the current minimum value of its children and alpha stores the
+current maxmium value which is passed from its parent (Max). Initially,
+-10000 (negative infinity) is assigned to the alpha of each Max node and
+10000 (positive infinity) is assigned to the beta of each Min node.
 
-   For the best case, all the first player's moves must be evaluated to find the
-   best one, but for each, only the best second player's move is needed, and the
-   complexity is about $\bigcirc(b^{\frac{d}{2}})$
+From beginning, the search strategy keeps looking down until it reaches the
+node with maximum depth and calculates the score of that node based on the
+heuristic evaluation function. Next, it compares the score with the rest of
+nodes with the same parent and return the maximum or minimum value as alpha
+or beta according to whose move it is.
 
-* Advantages and Limitations
-  One of the benefits of alpha-beta pruning is that it reduces the search space
-  significantly when comparing to a simple minimax algorithm. In terms of code
-  complexity, minimax algorithm is also simpler than a rule-based algorithm which
-  typically requires hundreds of rules to ensure a acceptable win rate.
+By repeating the previous two steps, the algorithm compares the value of
+alpha and beta continuously. The search can be stopped if the new beta of a
+Min node is less than or equal to its parent's alpha or the new alpha of a
+Max node is greater than or equal to its parent's beta.
 
-  The Limitation of minimax algorithm is that the search space still needs to be
-  large enough to ensure the win rate when the specified rules are not
-  sufficient. While if provided necessary rules, the search depth can be reduced
-  correspondingly.
+\subsection{Complexity Analysis}
+\label{sec:orgdd63797}
+The average number of branch is defined as b and search depth is defined as
+d. The worst case is that all nodes need to be evaluated without any pruning.
+Thus the complexity is \(\bigcirc(b^d)\). 
 
-* Win Situation
-  To be specific, if only rule 1 and 2 in the evaluation function are provided,
-  the search depth needs to be at least 7 to play without losing. While if all
-  of the 4 rules are given, then the search depth can be reduced to 2 or 3.
+For the best case, all the first player's moves must be evaluated to find the
+best one, but for each, only the best second player's move is needed, and the
+complexity is about \(\bigcirc(b^{\frac{d}{2}})\)
 
-* References
-  https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning
+\section{Advantages and Limitations}
+\label{sec:orge01830b}
+One of the benefits of alpha-beta pruning is that it reduces the search space
+significantly when comparing to a simple minimax algorithm. In terms of code
+complexity, minimax algorithm is also simpler than a rule-based algorithm which
+typically requires hundreds of rules to ensure a acceptable win rate.
 
-* Appendix
-#+BEGIN_SRC python
+The Limitation of minimax algorithm is that the search space still needs to be
+large enough to ensure the win rate when the specified rules are not
+sufficient. While if provided necessary rules, the search depth can be reduced
+correspondingly.
+
+\section{Win Situation}
+\label{sec:org3e0e933}
+To be specific, if only rule 1 and 2 in the evaluation function are provided,
+the search depth needs to be at least 7 to play without losing. While if all
+of the 4 rules are given, then the search depth can be reduced to 2 or 3.
+
+\section{References}
+\label{sec:org7550bba}
+\url{https://en.wikipedia.org/wiki/Alpha\%E2\%80\%93beta\_pruning}
+
+\section{Appendix}
+\label{sec:org28e9b89}
+\begin{verbatim}
 def writeBoard(gameboard):
     gameGraph = []
     for i in range(3):
@@ -309,5 +365,5 @@ while turn < 9:
 
 # currentBoard = [readBoard(input().strip()) for i in range(3)]
 # play(currentBoard,player,1)
-#+END_SRC    
-    
+\end{verbatim}
+\end{document}
