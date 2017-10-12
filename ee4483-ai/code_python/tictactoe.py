@@ -63,41 +63,6 @@ def evalCurrentBoard(_cB):
 
 def strategyAnalysis(_currentBoard, _currentPlayer, _depth, previous_aorb, counter):
 
-    # def evalCurrentBoard(_cB):
-    #
-    #     def evalLine(p1,p2,p3):
-    #         scores = 0
-    #         if p1+p2+p3 == 0:
-    #             scores = 0
-    #         elif p1+p2+p3 == 3:
-    #             scores = 2000
-    #         elif p1+p2+p3 == 2:
-    #             scores = 100
-    #         elif p1+p2+p3 == 1:
-    #             if abs(p1)+abs(p2)+abs(p3) == 1:
-    #                 scores = 10
-    #             elif abs(p1)+abs(p2)+abs(p3) == 3:
-    #                 scores = 0
-    #         elif p1+p2+p3 == -3:
-    #             scores = -2000
-    #         elif p1+p2+p3 == -2:
-    #             scores = -100
-    #         elif p1+p2+p3 == -1:
-    #             if abs(p1)+abs(p2)+abs(p3) == 1:
-    #                 scores = -10
-    #             elif abs(p1)+abs(p2)+abs(p3) == 3:
-    #                 scores = 0
-    #         return scores
-    #
-    #     line_score = 0
-    #     for r in range(3):
-    #         line_score += evalLine(_cB[r][0],_cB[r][1],_cB[r][2])
-    #     for c in range(3):
-    #         line_score += evalLine(_cB[0][c],_cB[1][c],_cB[2][c])
-    #     line_score += evalLine(_cB[0][0],_cB[1][1],_cB[2][2],)
-    #     line_score += evalLine(_cB[2][0],_cB[1][1],_cB[0][2],)
-    #     return line_score
-
     def generateNewBoard(step):
         tempBoard = [row[:] for row in _currentBoard]
         if _currentPlayer == "X":
@@ -122,7 +87,7 @@ def strategyAnalysis(_currentBoard, _currentPlayer, _depth, previous_aorb, count
         counter = counter + 1
         return [[], evalCurrentBoard(_currentBoard), previous_aorb, counter]
     else:
-        # Minimax Algorithm
+        # Minimax with alpha-beta pruning algorithm
         optimized_move = None
         if _currentPlayer == "X":
             _alpha = -10000  # Set local alpha for current Max and pass to next Min
@@ -171,7 +136,7 @@ def play(_cBoard, _cPlayer, _turns):
                 print(i)
             return 1
     elif _cPlayer == "O":
-        nextStrategy = strategyAnalysis(_cBoard, _cPlayer, 2, -10000, 0)
+        nextStrategy = strategyAnalysis(_cBoard, _cPlayer, 8, -10000, 0)
         print(nextStrategy)
         nextStep = nextStrategy[0]
         if nextStep:
