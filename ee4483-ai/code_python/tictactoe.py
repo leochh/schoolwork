@@ -162,6 +162,7 @@ while turn < 9:
         # check if player is offensive or defensive
         if player == 'X' or player == 'x':
             while True:
+                # Input Example:2 2
                 next_decision = [int(i) for i in input("Input next step m n(seperated by space m,n<=2):").split(' ')]
                 if newboard[next_decision[0]][next_decision[1]] == 0 and len(next_decision) == 2:
                     newboard[next_decision[0]][next_decision[1]] = 1
