@@ -1,4 +1,4 @@
-% Created 2017-10-15 Sun 21:52
+% Created 2017-10-15 Sun 22:39
 % Intended LaTeX compiler: pdflatex
 \documentclass[titlepage]{article}
 \usepackage[utf8]{inputenc}
@@ -50,7 +50,7 @@ REPORT \\
 \pagenumbering{arabic}
 
 \section{Overview}
-\label{sec:orgd633083}
+\label{sec:org227d42f}
 This algorithm includes a heuristic measure function and a minimax search with
 alpha-beta pruning. The heuristic evaluation function gives a weight on every
 move the computer makes. Higher the score is, more possible the decision is
@@ -58,10 +58,10 @@ chose. Meanwhile, the alpha-beta pruning helps to reduce the search space so
 as to provide higher search efficiency.
 
 \section{Heuristic Evaluation Function}
-\label{sec:org29fa332}
+\label{sec:org4726084}
 In tic-tac-toe, there are 3 conditions for a place, which 0 is defined for
 empty, 1 for offensive player's (X) stone and -1 for defensive player's (O)
-stone. For example, row '\(_{\text{XO}}\)' is represented by array [0, 1, -1], which means
+stone. For example, row \texttt{\char`_XO} is represented by array [0, 1, -1], which means
 empty for first place, offensive player's stone at second place and defensive
 player's stone at third place. 9 different situations are defined by 4 rules
 in the heuristic evaluation function:
@@ -113,9 +113,9 @@ situation.
 The total score is the sum of the 8 lines' score.
 
 \section{Minimax Searching Algorithm With Alpha-Beta Pruning}
-\label{sec:org12fcd22}
+\label{sec:org0f5607b}
 \subsection{Search Strategy}
-\label{sec:org746fdbe}
+\label{sec:org1779a4e}
 In implementing minimax algorithm, each level in search space according to
 whose move it is at that point is labeld as Min or Max. For example, if the
 current player is offensive(X), it is labeled as Max and needs the maximum
@@ -142,17 +142,17 @@ Min node is less than or equal to its parent's alpha or the new alpha of a
 Max node is greater than or equal to its parent's beta.
 
 \subsection{Complexity Analysis}
-\label{sec:org34738a0}
+\label{sec:org64573c3}
 The average number of branch is defined as b and search depth is defined as
 d. The worst case is that all nodes need to be evaluated without any pruning.
-Thus the complexity is \(\bigcirc(b^d)\). 
+Thus the complexity is \(O(b^d)\). 
 
 For the best case, all the first player's moves must be evaluated to find the
 best one, but for each, only the best second player's move is needed, and the
-complexity is about \(\bigcirc(b^{\frac{d}{2}})\)
+complexity is about \(O(b^{\frac{d}{2}})\)
 
 \section{Advantages and Limitations}
-\label{sec:org9b091a7}
+\label{sec:org950dc3c}
 One of the benefits of alpha-beta pruning is that it reduces the search space
 significantly when comparing to a simple minimax algorithm. In terms of code
 complexity, minimax algorithm is also simpler than a rule-based algorithm which
@@ -164,18 +164,18 @@ sufficient. While if provided necessary rules, the search depth can be reduced
 correspondingly.
 
 \section{Win Situation}
-\label{sec:org02861d6}
+\label{sec:org55e5a30}
 To be specific, if only rule 1 and 2 in the evaluation function are provided,
 the search depth needs to be at least 7 to play without losing. While if all
 of the 4 rules are given, then the search depth can be reduced to 2 or 3.
 
 \section{References}
-\label{sec:org6741b8a}
+\label{sec:org08c8d3e}
 \url{https://en.wikipedia.org/wiki/Alpha\%E2\%80\%93beta\_pruning}
 
 \newpage
 \section{Appendix}
-\label{sec:org00dfb15}
+\label{sec:orgb00d64b}
 \begin{verbatim}
 def writeBoard(gameboard):
     gameGraph = []

@@ -16,7 +16,7 @@
 #+AUTHOR: EEE \\
 #+DATE: 12 Oct, 2017 \\
 #+LaTeX: \pagenumbering{roman}
-\newpage
+#+LaTeX: \newpage
 #+LaTeX: \pagenumbering{arabic}
 
 * Overview
@@ -29,7 +29,7 @@
 * Heuristic Evaluation Function
   In tic-tac-toe, there are 3 conditions for a place, which 0 is defined for
   empty, 1 for offensive player's (X) stone and -1 for defensive player's (O)
-  stone. For example, row '_XO' is represented by array [0, 1, -1], which means
+  stone. For example, row \texttt{\char`_XO} is represented by array [0, 1, -1], which means
   empty for first place, offensive player's stone at second place and defensive
   player's stone at third place. 9 different situations are defined by 4 rules
   in the heuristic evaluation function:
@@ -94,11 +94,11 @@
 ** Complexity Analysis
    The average number of branch is defined as b and search depth is defined as
    d. The worst case is that all nodes need to be evaluated without any pruning.
-   Thus the complexity is $\bigcirc(b^d)$. 
+   Thus the complexity is $O(b^d)$. 
 
    For the best case, all the first player's moves must be evaluated to find the
    best one, but for each, only the best second player's move is needed, and the
-   complexity is about $\bigcirc(b^{\frac{d}{2}})$
+   complexity is about $O(b^{\frac{d}{2}})$
 
 * Advantages and Limitations
   One of the benefits of alpha-beta pruning is that it reduces the search space

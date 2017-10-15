@@ -16,7 +16,7 @@
 #+AUTHOR: EEE \\
 #+DATE: 21 Sep, 2017 \\
 #+LaTeX: \pagenumbering{roman}
-\newpage
+#+LaTeX: \newpage
 #+LaTeX: \pagenumbering{arabic}
 
 * Algorithm Description
