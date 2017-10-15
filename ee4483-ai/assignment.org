@@ -1,21 +1,24 @@
-#+LaTeX_CLASS: koma-article
+#+LaTeX_CLASS: article
 #+LaTeX_CLASS_OPTIONS: [setspace, doublespace]
 #+LATEX_CLASS_OPTIONS: [a4paper]
-#+LaTeX_HEADER: \usepackage{indentfirst}
-#+LaTeX_HEADER: \setlength{\parindent}{2em}
-#+LaTeX_HEADER: \setlength{\parskip}{1em}
+#+LaTeX_CLASS_OPTIONS: [12pt]
+#+LaTeX_CLASS_OPTIONS: [titlepage]
 #+LaTeX_HEADER: \hypersetup{hidelinks=true}
+#+LaTeX_HEADER: \setlength{\parindent}{2em}
+#+LATEX_HEADER: \usepackage[margin=1.2in]{geometry}
 #+TITLE: \includegraphics[width=\textwidth]{logo_ntu_new.png} \\
-#+TITLE: [3\baselineskip]
-#+TITLE: ASSIGNMENT \\
+#+TITLE: [5\baselineskip]
+#+TITLE: ASSIGNMENT 1 \\
 #+TITLE: REPORT \\
-#+TITLE: [7\baselineskip]
+#+TITLE: [5\baselineskip]
 #+AUTHOR: Hu Xiaoxiang \\
 #+AUTHOR: U1521319A \\
 #+AUTHOR: EEE \\
-#+DATE: Sep 21, 2017 \\
-
+#+DATE: 21 Sep, 2017 \\
+#+LaTeX: \pagenumbering{roman}
 \newpage
+#+LaTeX: \pagenumbering{arabic}
+
 * Algorithm Description
 ** Bisection method
    The bisection method in mathematics is a root-finding method that repeatedly

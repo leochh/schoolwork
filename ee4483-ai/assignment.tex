@@ -1,6 +1,6 @@
-% Created 2017-09-22 Fri 00:27
+% Created 2017-10-15 Sun 22:19
 % Intended LaTeX compiler: pdflatex
-\documentclass[a4paper]{scrartcl}
+\documentclass[titlepage]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
@@ -14,56 +14,58 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\usepackage{indentfirst}
-\setlength{\parindent}{2em}
-\setlength{\parskip}{1em}
 \hypersetup{hidelinks=true}
+\setlength{\parindent}{2em}
+\usepackage[margin=1.2in]{geometry}
 \author{Hu Xiaoxiang \\
 U1521319A \\
 EEE \\
 }
-\date{Sep 21, 2017 \\
+\date{21 Sep, 2017 \\
 }
 \title{\includegraphics[width=\textwidth]{logo_ntu_new.png} \\
-[3\baselineskip] ASSIGNMENT \\
+[5\baselineskip] ASSIGNMENT 1 \\
 REPORT \\
-[7\baselineskip]}
+[5\baselineskip]}
 \hypersetup{
  pdfauthor={Hu Xiaoxiang \\
 U1521319A \\
 EEE \\
 },
  pdftitle={\includegraphics[width=\textwidth]{logo_ntu_new.png} \\
-[3\baselineskip] ASSIGNMENT \\
+[5\baselineskip] ASSIGNMENT 1 \\
 REPORT \\
-[7\baselineskip]},
+[5\baselineskip]},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 25.1.1 (Org mode 9.1.1)}, 
+ pdfcreator={Emacs 25.1.1 (Org mode 9.1.2)}, 
  pdflang={English}}
 \begin{document}
 
 \maketitle
 \tableofcontents
 
+\pagenumbering{roman}
 \newpage
+\pagenumbering{arabic}
+
 \section{Algorithm Description}
-\label{sec:org9dce6dd}
+\label{sec:org0a0f16f}
 \subsection{Bisection method}
-\label{sec:org39992b2}
+\label{sec:org14108ef}
 The bisection method in mathematics is a root-finding method that repeatedly
 bisects an interval and then selects a subinterval in which a subinterval
 in which a root must lie for further processing.
 \subsection{Newton-Raphson method}
-\label{sec:orge994705}
+\label{sec:orgb21c6d9}
 The Newton-Raphson method is a method for finding successively better
 approximations to the roots of a real-valued function. The formula of
 Newton-Raphson method is $$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$
 
 \section{Proof}
-\label{sec:org13a16fe}
+\label{sec:org782e96a}
 \subsection{Bisection method}
-\label{sec:orgb136c2b}
+\label{sec:orgdb1427f}
 Firstly I assume the given number \(X_0\) is positive. Because the symmetry of
 the positive and negative number on number axis, the algorithm should work
 for negative number as long as it works for positive number.
@@ -99,7 +101,7 @@ then let \(x_{high_2} = x_{mid_1}\), \(x_{low_2} = x_{low_1} = x_{mid_0}\), \(x_
 Repeat step A or B until \(|x_{mid_{n+1}} - x_{mid_n}| < precision~error\)
 
 \subsection{Newton-Raphson method}
-\label{sec:orgf0fdb9f}
+\label{sec:org773c98a}
 \begin{center}
 \includegraphics[width=.9\linewidth]{numberAxis3.png}
 \end{center}
@@ -130,10 +132,10 @@ is proportional to the square of the old estimate. That means the precision
 digits will double for each iteration.
 
 \section{Complexity Analysis}
-\label{sec:orgc5b4955}
+\label{sec:org0081809}
 
 \subsection{Bisection method}
-\label{sec:orgcde5789}
+\label{sec:orgf40048f}
 Here I define the time complexity is dependent on the required precision
 digit N. For example, 1.12345 with precision digit N=3 means the first 3
 digits after decimal point .123 are accurate.
@@ -152,7 +154,7 @@ required precision interval, which means the time complexity of bisection
 method is \(O(N)\).
 
 \subsection{Newton-Raphson method}
-\label{sec:orgb1cc7c7}
+\label{sec:orga0e3e98}
 The Eq.4 \(e_{n+1} = \frac{f''(x_n)}{2f'(x_n)}e^2_n\) shows that the precision
 digits will double after each iteration. For example, if the error for the
 1st time iteration is 0.1(N=1), the error for the 2nd and 3rd time iteration
@@ -161,7 +163,7 @@ it shows \(N \propto 2^t\). If ignoring the affect of the initial value \(x_0\),
 the time complexity of Newton-Raphson method is \(O(\log_2 N)\)
 
 \section{Conclusion}
-\label{sec:orge3c2a37}
+\label{sec:orgbfebea6}
 After several times of experiment, the results show that with the increasing
 number of precision digits N, the total number of iterations for
 bisection method is proportional to N. 

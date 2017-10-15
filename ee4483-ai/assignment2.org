@@ -1,18 +1,24 @@
-#+LaTeX_CLASS: koma-article
+#+LaTeX_CLASS: article
 #+LaTeX_CLASS_OPTIONS: [setspace, doublespace]
 #+LATEX_CLASS_OPTIONS: [a4paper]
+#+LaTeX_CLASS_OPTIONS: [12pt]
+#+LaTeX_CLASS_OPTIONS: [titlepage]
 #+LaTeX_HEADER: \hypersetup{hidelinks=true}
+#+LaTeX_HEADER: \setlength{\parindent}{2em}
+#+LATEX_HEADER: \usepackage[margin=1.2in]{geometry}
 #+TITLE: \includegraphics[width=\textwidth]{logo_ntu_new.png} \\
-#+TITLE: [3\baselineskip]
-#+TITLE: ASSIGNMENT2 \\
+#+TITLE: [5\baselineskip]
+#+TITLE: ASSIGNMENT 2 \\
 #+TITLE: REPORT \\
-#+TITLE: [7\baselineskip]
+#+TITLE: [5\baselineskip]
 #+AUTHOR: Hu Xiaoxiang \\
 #+AUTHOR: U1521319A \\
 #+AUTHOR: EEE \\
 #+DATE: 12 Oct, 2017 \\
-
+#+LaTeX: \pagenumbering{roman}
 \newpage
+#+LaTeX: \pagenumbering{arabic}
+
 * Overview
   This algorithm includes a heuristic measure function and a minimax search with
   alpha-beta pruning. The heuristic evaluation function gives a weight on every
@@ -113,6 +119,7 @@
 * References
   https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning
 
+\newpage
 * Appendix
 #+BEGIN_SRC python
 def writeBoard(gameboard):
