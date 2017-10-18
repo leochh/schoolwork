@@ -1,3 +1,23 @@
+#+LaTeX_CLASS: article
+#+LaTeX_CLASS_OPTIONS: [setspace, doublespace]
+#+LaTeX_CLASS_OPTIONS: [a4paper]
+#+LaTeX_CLASS_OPTIONS: [12pt]
+#+LaTeX_CLASS_OPTIONS: [titlepage]
+#+LaTeX_HEADER: \hypersetup{hidelinks=true}
+#+LaTeX_HEADER: \setlength{\parindent}{2em}
+#+LaTeX_HEADER: \usepackage[margin=1.2in]{geometry}
+#+TITLE: \includegraphics[width=\textwidth]{logo_ntu_new.png} \\
+#+TITLE: [5\baselineskip]
+#+TITLE: ASSIGNMENT \\
+#+TITLE: REPORT \\
+#+TITLE: [5\baselineskip]
+#+AUTHOR: Hu Xiaoxiang \\
+#+AUTHOR: U1521319A \\
+#+AUTHOR: EEE \\
+#+DATE: 18 Oct, 2017 \\
+#+LaTeX: \pagenumbering{roman}
+#+LaTeX: \newpage
+#+LaTeX: \pagenumbering{arabic}
 #+STARTUP: noinlineimages
 
 * Introduction
@@ -42,16 +62,13 @@
   Matlab's internal audioread() function. The audio output, which includes the
   DAC and reconstruction filter, is built on Matlab's sound() function.
 
-  [[file:layour.png]]
+  [[file:layout.png]]
 
   The GUI is designed by using Matlab's App Designer. As shown in the figure
   above, each frequency band in the equalizer is controlled by a slider. The
   'Apply' button collects the values set by sliders and pass to fir2() function
   to generate the filters' coefficients b. The 5 'plot' buttons plot the figure
   of the different response of the filter.
-
-  chebwin() window function is used here also. Window function is used to reduce
-  signal leakage and
 * Algorithm
   The FIR filter function used in this equalizer is b=fir2(n,f,m,npt,lap,wind),
   where n, f, m, npt, lab and wind represent filter order, frequency interval,
@@ -127,11 +144,39 @@
    and above 3200 are enhanced. On the second configuration, signal components
    between 400 Hz and 3200 Hz are enhanced. 
 
-   As shown in the figure above, the transitions of an ideal
-   filter frequency response is steep. For actual frequency response, the
-   transitions between different band edges is more smooth. The transition band
-   for setting a is about 560 Hz, which mainly limits the filter's performance
-   on low frequency band with narrower band width.
-  
+   As shown in the figure above, the transitions of an ideal filter frequency
+   response is steep. For actual frequency response, the transitions between
+   different band edges is more smooth. The transition band for setting a is
+   about 560 Hz and this is the main factor which limits the filter's
+   performance on low frequency band. For the bandwidth of low frequency band is
+   narrow, which is 200 Hz typically, a wide transition band can cause
+   significant influence on these section. One way to improve the performance is
+   to increase the filter order. The figure on below shows the frequency
+   response with 800 filter order.  the transition bandwidth now
+   decrease to around 300 Hz.
 
+   [[file:higher_order.png]]
 
+   The obtained spectrum shows the result of the filtered signal. The shape of
+   the output spectrum corresponds to the shape of the FIR filter's frequency
+   response. 
+* Conclusion And Recommendations
+  In summary, the FIR filter basically meets the specification of an audio
+  equalizer. The result shows that the equalizer performs better on higher
+  frequency band compared to lower frequency band. Generally, the frequency
+  sampling method is a simple way to implement FIR filter. However, this method
+  requires longer filter length to achieve a more precise solution. In
+  comparison to other design method, such as window design method, least squared
+  method and the Parks-McClellan method, this method can have overall more
+  error. Thus, it is recommended to implement the digital equalizer by using
+  other method for a better solution on low frequency band.
+* References
+1. Matlab Documentation 2017a
+https://www.mathworks.com/help/signal/ref/fir2.html
+
+2. Wikipedia: Window Function
+https://en.wikipedia.org/wiki/Window_function
+
+3. StackExchange: Difference between frequency sampling and windowing method
+https://dsp.stackexchange.com/questions/31905/
+difference-between-frequency-sampling-and-windowing-method
