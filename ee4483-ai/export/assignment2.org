@@ -1,11 +1,11 @@
 #+LaTeX_CLASS: article
 #+LaTeX_CLASS_OPTIONS: [setspace, doublespace]
-#+LATEX_CLASS_OPTIONS: [a4paper]
+#+LaTeX_CLASS_OPTIONS: [a4paper]
 #+LaTeX_CLASS_OPTIONS: [12pt]
 #+LaTeX_CLASS_OPTIONS: [titlepage]
 #+LaTeX_HEADER: \hypersetup{hidelinks=true}
 #+LaTeX_HEADER: \setlength{\parindent}{2em}
-#+LATEX_HEADER: \usepackage[margin=1.2in]{geometry}
+#+LaTeX_HEADER: \usepackage[margin=1.2in]{geometry}
 #+TITLE: \includegraphics[width=\textwidth]{logo_ntu_new.png} \\
 #+TITLE: [5\baselineskip]
 #+TITLE: ASSIGNMENT 2 \\
