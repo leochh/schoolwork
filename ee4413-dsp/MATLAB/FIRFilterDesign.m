@@ -50,10 +50,10 @@
 % b = remez(N, fts, mval, wgts)
 
 % --------------Q7.25
-% fpts = [0 0.05 0.1 0.399 0.4 0.599 0.6 0.799 0.9 0.989 0.99 1];
-% mval = [0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 1 1 0 0];
-% N = 50;
-% b = fir2(N, fpts, mval, chebwin(N+1));
+fpts = [0 0.5 0.5 1];
+mval = [1 1 0 0];
+N = 100;
+b = fir2(N, fpts, mval, 512, 5, chebwin(N+1));
 % b = remez(N, fpts, mval);
 
 % --------------Q7.26
@@ -84,9 +84,9 @@
 % wgts = max(dp, ds)*[1/ds, 1/dp, 1/ds];
 % b = remez(N, fpts, mval, wgts)
 
-% freqz(b)
-b = fir1(18,800/(2000/2),'high');
-impz(b, 1, 50)
+freqz(b)
+% b = fir1(18,800/(2000/2),'high');
+% impz(b, 1, 50)
 
 % [g,w,p_rad]=gain(b,1);
 % -------------------------------------Amplitude Response
