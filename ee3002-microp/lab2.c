@@ -386,7 +386,9 @@ int main (void) {
       if (joy & (1 << 3)) {             	/* check "Down" Key */
         switch (type){
 					case 0: {
-						if (diff_level > 0) diff_level -= 0.1;
+						if (diff_level > 0.1) {
+							diff_level -= 0.1;
+						}else { diff_level = 0;}
 					}
 					break;
 					case 1: {
