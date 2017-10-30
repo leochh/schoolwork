@@ -5,10 +5,10 @@ import collections
 def load_image_into_numpy_array(image):
     (im_width, im_height) = image.size
     if len(image.getbands()) == 3:
-        img_array = np.array(image.getdata()).reshape((im_height, im_width, 3)).astype(np.uint8)
+        img_array = np.array(image.getdata()).reshape((im_height, im_width, 3))
     if len(image.getbands()) == 1:
-        img_array = np.array(image.getdata()).reshape((im_height, im_width)).astype(np.uint8)
-    return img_array
+        img_array = np.array(image.getdata()).reshape((im_height, im_width))
+    return img_array.astype(np.uint8)
 
 
 def lloyd_quantize(im_np, level=2):
@@ -89,3 +89,14 @@ def histeq(im_np):
         for y in range(im_length):
             new_im[x, y] = ((cf[im_np[x, y]] - c_min) / (1 - c_min) * 255 + 0.5) // 1
     return new_im.astype(np.uint8)
+
+
+def select_color_channel(im_np, channel):
+    new_im = np.zeros(im_np.shape)
+    new_im[:, :, channel] = im_np[:, :, channel]
+    return new_im
+
+
+def gray_level_reversal(im_np):
+    new_im = 255 - im_np
+    return new_im
