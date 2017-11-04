@@ -71,15 +71,21 @@ def mean(im_np, type=1):
 
 def laplacian(im_np, type=1):
     mask_1 = np.array([[0,-1,0],
-                       [-1,-4,-1],
+                       [-1,4,-1],
                        [0,-1,0]])
     mask_2 = np.array([[-1,-1,-1],
                        [-1,8,-1],
                        [-1,-1,-1]])
+    mask_3 = - mask_1
+    mask_4 = - mask_2
     if type == 1:
         lap = mask_1
     elif type == 2:
         lap = mask_2
+    elif type == 3:
+        lap = mask_3
+    elif type == 4:
+        lap = mask_4
     im_out = signal.convolve2d(im_np, lap)
     return im_out
 
@@ -149,6 +155,43 @@ def alpha_trimmed_mean(im_np, window_size=3, alpha=2):
             im_new[m-pad_length, n-pad_length] = np.mean(
                 ordered_elements[int(alpha/2):int(-(alpha/2))]).astype(np.uint8)
     return im_new
+
+
+def k_means_thresh(im_np, cluster=2):
+    # centroid[current centroid value:sum:count]
+    centroid = np.zeros([cluster, 3])
+    for k in range(cluster):
+        centroid[k, 0] = (k + .5) / cluster * 255
+    im_height, im_width = im_np.shape
+    while True:
+        check_done = True
+        for m in range(im_height):
+            for n in range(im_width):
+                min_dist = 99999
+                cent_count = 0
+                target_cent = 0
+                for c in range(cluster):
+                    distance = abs(im_np[m,n] - centroid[c, 0])
+                    if distance < min_dist:
+                        min_dist = distance
+                        target_cent = cent_count
+                    cent_count += 1
+                centroid[target_cent, 1] += im_np[m,n]
+                centroid[target_cent, 2] += 1
+        for c in range(cluster):
+            new_cent = centroid[c, 1] / centroid[c, 2]
+            if abs(centroid[c, 0] - new_cent) >= 1:
+                centroid[c, 0] = new_cent
+                centroid[c, 1] = 0
+                centroid[c, 2] = 0
+                check_done = False
+        if check_done:
+            break
+    thresh = np.zeros([cluster - 1])
+    for c in range(1, cluster):
+        thresh[c - 1] = (centroid[c - 1, 0] + centroid[c, 0]) / 2
+    return thresh
+
 
 
 

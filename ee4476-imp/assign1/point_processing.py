@@ -1,5 +1,6 @@
 import numpy as np
 import collections
+from PIL import Image
 
 
 def load_image_into_numpy_array(image):
@@ -43,9 +44,9 @@ def gray_level_window_slice(im_np, win, val):
     if len(val) != len(win)-1:
         raise ValueError('len(val) should be len(win) -1')
     new_im = np.zeros(im_np.shape)
-    im_width, im_length = im_np.shape
-    for x in range(im_width):
-        for y in range(im_length):
+    im_height, im_width = im_np.shape
+    for x in range(im_height):
+        for y in range(im_width):
             for k in range(1, len(win)):
                 if win[k] > im_np[x, y] >= win[k-1]:
                     if val[k-1] == -1:
@@ -58,9 +59,9 @@ def gray_level_window_slice(im_np, win, val):
 
 def n_bit_plane_slice(im_np, b=1):
     new_im = np.zeros(im_np.shape)
-    im_width, im_length = im_np.shape
-    for x in range(im_width):
-        for y in range(im_length):
+    im_height, im_width = im_np.shape
+    for x in range(im_height):
+        for y in range(im_width):
             i_n = im_np[x, y] // (2 ** (8 - b))
             i_n_1 = im_np[x, y] // (2 ** (9 - b))
             new_im[x, y] = (i_n - i_n_1 * 2) * 255
@@ -84,9 +85,9 @@ def histeq(im_np):
             cf[f] = cf[f-1] + pf
     c_min = min(cf)
     new_im = np.zeros(im_np.shape)
-    im_width, im_length = im_np.shape
-    for x in range(im_width):
-        for y in range(im_length):
+    im_height, im_width = im_np.shape
+    for x in range(im_height):
+        for y in range(im_width):
             new_im[x, y] = ((cf[im_np[x, y]] - c_min) / (1 - c_min) * 255 + 0.5) // 1
     return new_im.astype(np.uint8)
 
@@ -100,3 +101,4 @@ def select_color_channel(im_np, channel):
 def gray_level_reversal(im_np):
     new_im = 255 - im_np
     return new_im
+
