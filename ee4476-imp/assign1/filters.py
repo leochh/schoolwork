@@ -1,8 +1,9 @@
 import numpy as np
 from scipy import signal
 from skimage.filters.rank import otsu, enhance_contrast
-from skimage.filters import threshold_li
 from skimage.morphology import disk
+import point_processing as pp
+
 
 def sobel(im_np, direction='+'):
     sobel_h = np.array([[1,2,1],
@@ -23,7 +24,7 @@ def sobel(im_np, direction='+'):
         g_h = signal.convolve2d(im_np, sobel_45p)
         g_v = signal.convolve2d(im_np, sobel_45n)
         im_out = np.sqrt(g_h**2 + g_v**2)
-    return im_out
+    return im_out[1:-1, 1:-1]
 
 
 def laplacian_of_gaussian(im_np):
@@ -33,40 +34,18 @@ def laplacian_of_gaussian(im_np):
                     [0,-1,-2,-1,0],
                     [0,0,-1,0,0]])
     im_out = signal.convolve2d(im_np, log)
-    return im_out
+    return im_out[2:-2, 2:-2]
 
 
 def mean(im_np, type=1):
-    m_1 = np.array([[1,1,1],
-                    [1,1,1],
-                    [1,1,1]]) / 9
-    m_2 = np.array([[0,1,0],
-                    [1,4,1],
-                    [0,1,0]]) / 8
-    m_3 = np.array([[1,2,1],
-                    [2,4,2],
-                    [1,2,1]]) / 16
-    m_4 = np.array([[1,1,1,1,1],
-                    [1,1,1,1,1],
-                    [1,1,1,1,1],
-                    [1,1,1,1,1],
-                    [1,1,1,1,1]]) / 25
-    m_5 = np.array([[1,4,7,4,1],
-                    [4,16,26,16,4],
-                    [7,26,41,26,7],
-                    [4,16,26,16,4],
-                    [1,4,7,4,1]]) / 273
+    m_1 = np.ones((3,3)) / 9
+    m_2 = np.ones((5,5)) / 25
     if type == 1:
         im_out = signal.convolve2d(im_np, m_1)
+        return im_out[1:-1, 1:-1]
     elif type == 2:
         im_out = signal.convolve2d(im_np, m_2)
-    elif type == 3:
-        im_out = signal.convolve2d(im_np, m_3)
-    elif type == 4:
-        im_out = signal.convolve2d(im_np, m_4)
-    elif type == 5:
-        im_out = signal.convolve2d(im_np, m_5)
-    return im_out
+        return im_out[2:-2, 2:-2]
 
 
 def laplacian(im_np, type=1):
@@ -87,7 +66,7 @@ def laplacian(im_np, type=1):
     elif type == 4:
         lap = mask_4
     im_out = signal.convolve2d(im_np, lap)
-    return im_out
+    return im_out[1:-1, 1:-1]
 
 
 def line_detector(im_np, direction='|'):
@@ -123,24 +102,18 @@ def line_detector(im_np, direction='|'):
         s_h = signal.convolve2d(im_np,line_45p)
         s_v = signal.convolve2d(im_np,line_45n)
         im_out = np.sqrt(g_h**2 + g_v**2 + s_h**2 + s_v**2)
-    return im_out
+    return im_out[1:-1, 1:-1]
 
 
 def otsu_threshold(im_np, rad):
     local_otsu = otsu(im_np, disk(rad))
     thresh_image = im_np >= local_otsu
-    return thresh_image
+    return np.uint8(thresh_image*255)
 
 
 def contrast_enhan(im_np, rad):
     im_new = enhance_contrast(im_np, disk(rad))
     return im_new
-
-
-def li_threshold(im_np):
-    thresh = threshold_li(im_np)
-    thresh_image = im_np >= thresh
-    return thresh_image
 
 
 def alpha_trimmed_mean(im_np, window_size=3, alpha=2):
@@ -193,5 +166,24 @@ def k_means_thresh(im_np, cluster=2):
     return thresh
 
 
+def line_mask(im_np, im_np_original, window=4, eta=2):
+    def _generate_mask():
+        im_np_sliced = pp.n_bit_plane_slice(im_np_original, 1)
+        im_mask = np.uint8(line_detector(im_np_sliced, direction='+'))
+        im_height, im_width = im_mask.shape
+        thresh = eta * 255 / ((window * 2) ** 2)
+        for m in range(window, im_height-window, window*2):
+            for n in range(window, im_width-window, window*2):
+                if np.mean(im_mask[m-window:m+window, n-window:n+window].flatten()) > thresh:
+                    im_mask[m-window:m+window, n-window:n+window] = 255
+        return im_mask
+    mask = _generate_mask()
+    new_im_np = np.copy(im_np)
+    im_height, im_width = new_im_np.shape
+    for m in range(im_height):
+        for n in range(im_width):
+            if mask[m, n] == 0:
+                new_im_np[m, n] = 255
+    return new_im_np
 
 

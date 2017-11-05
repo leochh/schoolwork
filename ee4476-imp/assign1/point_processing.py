@@ -1,6 +1,5 @@
 import numpy as np
 import collections
-from PIL import Image
 
 
 def load_image_into_numpy_array(image):
