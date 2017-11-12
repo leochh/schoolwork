@@ -1,4 +1,4 @@
-% Created 2017-11-12 Sun 20:58
+% Created 2017-11-12 Sun 21:23
 % Intended LaTeX compiler: pdflatex
 \documentclass[titlepage]{article}
 \usepackage[utf8]{inputenc}
@@ -17,6 +17,7 @@
 \hypersetup{hidelinks=true}
 \setlength{\parindent}{2em}
 \usepackage[margin=1in]{geometry}
+\usepackage[toc,page]{appendix}
 \author{Hu Xiaoxiang \\
 U1521319A \\
 EEE \\
@@ -50,7 +51,7 @@ REPORT \\
 \pagenumbering{arabic}
 
 \section{Introduction}
-\label{sec:orga6587f4}
+\label{sec:orgb0c446c}
 With the proliferation of digital text sources in recent decades, such as the
 Internet and the mobile phone, there is a increasing need for document image
 processing and optical character recognition (OCR). However, many of the
@@ -61,7 +62,7 @@ procedures applied on the given sample images, as well as the source code of
 the process algorithms.
 
 \section{Procedure And Algorithm}
-\label{sec:org910259c}
+\label{sec:orgec8d273}
 In this project, most of the algorithms are implemented by Python, while there
 is still one image's process requiring to use Matlab function through Matlab
 Python API. To binarize a color image, the first step is changing the color
@@ -439,7 +440,7 @@ def line_mask(im_np, im_np_original, window=4, eta=2):
 \end{center}
 
 \section{Conclusion}
-\label{sec:orgf4739f0}
+\label{sec:org2a8659b}
 In summary, the processed images have better resolution for OCR, even though
 some small block of text area failed the test. After experimenting different
 methods, what I found is that n-bit slicing can handle most of the high
@@ -462,4 +463,15 @@ image.
 [online] Available at: https://www.mathworks.com/help/matlab/matlab-engine-for-python.html 
 
 \end{thebibliography}
+
+
+\begin{appendices}
+
+\chapter{Souce Code Link}
+https://github.com/seanhxx/schoolwork/tree/master/ee4476-imp/assign1
+
+\chapter{Images Link}
+https://github.com/seanhxx/schoolwork/tree/master/ee4476-imp/assign1/export
+
+\end{appendices}
 \end{document}

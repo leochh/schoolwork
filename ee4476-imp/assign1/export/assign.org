@@ -6,6 +6,7 @@
 #+LaTeX_HEADER: \hypersetup{hidelinks=true}
 #+LaTeX_HEADER: \setlength{\parindent}{2em}
 #+LaTeX_HEADER: \usepackage[margin=1in]{geometry}
+#+LaTeX_HEADER: \usepackage[toc,page]{appendix}
 #+TITLE: \includegraphics[width=\textwidth]{logo_ntu_new.png} \\
 #+TITLE: [5\baselineskip]
 #+TITLE: EE4476 \\
@@ -454,3 +455,14 @@
 [online] Available at: https://www.mathworks.com/help/matlab/matlab-engine-for-python.html 
 
 \end{thebibliography}
+
+
+\begin{appendices}
+
+\chapter{Souce Code Link}
+https://github.com/seanhxx/schoolwork/tree/master/ee4476-imp/assign1
+
+\chapter{Images Link}
+https://github.com/seanhxx/schoolwork/tree/master/ee4476-imp/assign1/export
+
+\end{appendices}
