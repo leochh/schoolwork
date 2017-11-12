@@ -1,6 +1,6 @@
 import numpy as np
 from scipy import signal
-from skimage.filters.rank import otsu, enhance_contrast
+from skimage.filters.rank import otsu
 from skimage.morphology import disk
 import point_processing as pp
 
@@ -111,11 +111,6 @@ def otsu_threshold(im_np, rad):
     return np.uint8(thresh_image*255)
 
 
-def contrast_enhan(im_np, rad):
-    im_new = enhance_contrast(im_np, disk(rad))
-    return im_new
-
-
 def alpha_trimmed_mean(im_np, window_size=3, alpha=2):
     pad_length = window_size // 2
     im_np_pad = np.pad(im_np, (pad_length,), 'edge')
@@ -187,3 +182,37 @@ def line_mask(im_np, im_np_original, window=4, eta=2):
     return new_im_np
 
 
+def dilation(im_np):
+    mask = np.array([[0,1,0],
+                     [1,1,1],
+                     [0,1,0]])
+    im_np_pad = np.pad(im_np, (1,), 'edge')
+    im_height, im_width = np.shape(im_np_pad)
+    im_new = np.zeros(np.shape(im_np))
+    for m in range(1, im_height - 1):
+        for n in range(1, im_width - 1):
+            if np.logical_and(im_np_pad[m-1:m+2, n-1:n+2], mask).any():
+                im_new[m-1, n-1] = 255
+    return im_new
+
+
+def erosion(im_np):
+    mask = np.array([[1,0,1],
+                     [0,0,0],
+                     [1,0,1]])
+    im_np_pad = np.pad(im_np, (1,), 'edge')
+    im_height, im_width = np.shape(im_np_pad)
+    im_new = np.zeros(np.shape(im_np))
+    for m in range(1, im_height - 1):
+        for n in range(1, im_width - 1):
+            if np.logical_or(im_np_pad[m-1:m+2, n-1:n+2], mask).all():
+                im_new[m-1, n-1] = 255
+    return im_new
+
+
+def opening(im_np):
+    return dilation(erosion(im_np))
+
+
+def closing(im_np):
+    return erosion(dilation(im_np))

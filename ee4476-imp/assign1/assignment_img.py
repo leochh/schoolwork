@@ -10,7 +10,7 @@ import tesserocr
 from scipy.misc import imresize
 
 IMAGE_PATH = [os.path.join(os.getcwd(), 'sample_data', 'Img{}.jpg'.format(i)) for i in range(1,12)]
-image_path = IMAGE_PATH[7]
+image_path = IMAGE_PATH[8]
 
 im = Image.open(image_path)
 im_original_color = pp.load_image_into_numpy_array(im)
@@ -25,6 +25,19 @@ def histshow(im_np):
     plt.hist(im_np.flatten(), 256, [0,255],fc='k',ec='k')
     plt.show()
 
+
+def plot_multi_img(titles, images, grid):
+    num = len(titles)
+    if num == grid[0] * grid[1]:
+        for i in range(num):
+            plt.subplot(grid[0], grid[1], i+1)
+            plt.imshow(images[i], 'gray')
+            plt.title(titles[i])
+            plt.xticks([])
+            plt.yticks([])
+        plt.show()
+
+
 # histshow(im_original_gray)
 # imshow(im_original_gray)
 
@@ -32,11 +45,13 @@ def histshow(im_np):
 # mag = ft.mag_resp(im_np_gray_f)
 # imshow(mag)
 
+
 # Image 1, 2, 3
 # im_final = pp.n_bit_plane_slice(im_original_gray, 1)
 # im_show = Image.fromarray(np.uint8(im_final))
 # histshow(im_final)
 # imshow(im_final)
+
 
 # Image 4, 5
 # im_step_1 = mf.alpha_trimmed_mean(im_original_gray, window_size=3, alpha=2)
@@ -44,6 +59,7 @@ def histshow(im_np):
 # im_show = Image.fromarray(np.uint8(im_final))
 # histshow(im_final)
 # imshow(im_final)
+
 
 # Image 6, 7
 # level = 2
@@ -57,6 +73,7 @@ def histshow(im_np):
 # histshow(im_final)
 # imshow(im_final)
 
+
 # Image 8
 # im_step_1 = imresize(im_original_gray, (im_original_gray.shape[0] * 4, im_original_gray.shape[1] * 4))
 # level = 2
@@ -66,6 +83,7 @@ def histshow(im_np):
 # histshow(im_final)
 # imshow(im_final)
 
+
 # Image 9
 # mat = matlab_func.MatlabFunction()
 # im_step_1 = mat.contrast_stretch(im_original_gray)
@@ -74,6 +92,32 @@ def histshow(im_np):
 # im_show = Image.fromarray(np.uint8(im_final))
 # histshow(im_final)
 # imshow(im_final)
+
+# fig_original = plt.figure()
+# plt.imshow(im_original_gray, 'gray')
+# plt.title('Input Gray')
+# plt.xticks([])
+# plt.yticks([])
+# fig_step_1 = plt.figure()
+# plt.imshow(im_step_1, 'gray')
+# plt.title('Output Contrast Stretch')
+# plt.xticks([])
+# plt.yticks([])
+# fig_step_2 = plt.figure()
+# plt.imshow(im_step_2, 'gray')
+# plt.title('Output Otsu')
+# plt.xticks([])
+# plt.yticks([])
+# fig_final = plt.figure()
+# plt.imshow(im_final, 'gray')
+# plt.title('Output Final')
+# plt.xticks([])
+# plt.yticks([])
+# fig_original.savefig('./export/img_9_gray', format='png', dpi=600)
+# fig_step_1.savefig('./export/img_9_output_cont', format='png', dpi=600)
+# fig_step_2.savefig('./export/img_9_output_otsu', format='png', dpi=600)
+# fig_final.savefig('./export/img_9_output_final', format='png', dpi=600)
+
 
 # Show Image and Text
 # im_show.show()
