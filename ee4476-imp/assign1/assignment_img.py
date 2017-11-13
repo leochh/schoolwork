@@ -5,12 +5,12 @@ import matplotlib.pyplot as plt
 import point_processing as pp
 import fourier_transform as ft
 import filters as mf
-import matlab_func
-import tesserocr
+# import matlab_func
+# import tesserocr
 from scipy.misc import imresize
 
 IMAGE_PATH = [os.path.join(os.getcwd(), 'sample_data', 'Img{}.jpg'.format(i)) for i in range(1,12)]
-image_path = IMAGE_PATH[8]
+image_path = IMAGE_PATH[1]
 
 im = Image.open(image_path)
 im_original_color = pp.load_image_into_numpy_array(im)
@@ -41,9 +41,18 @@ def plot_multi_img(titles, images, grid):
 # histshow(im_original_gray)
 # imshow(im_original_gray)
 
-# im_np_gray_f = ft.img2fft(im_original_gray)
-# mag = ft.mag_resp(im_np_gray_f)
-# imshow(mag)
+im_np_gray_f = ft.img2fft(im_original_gray)
+mag = ft.mag_resp(im_np_gray_f)
+imshow(mag)
+
+# im_np_filter = ft.filter2(im_np_gray_f, window_height=60, window_width=100)
+im_np_filter = ft.filter4(im_np_gray_f)
+mag1 = ft.mag_resp(im_np_filter)
+imshow(mag1)
+im_filtered = ft.fft2img(im_np_filter)
+imshow(im_filtered)
+im_final = pp.n_bit_plane_slice(im_filtered, 1)
+imshow(im_final)
 
 
 # Image 1, 2, 3
@@ -52,6 +61,8 @@ def plot_multi_img(titles, images, grid):
 # histshow(im_final)
 # imshow(im_final)
 
+# im_closing = mf.closing(im_final)
+# imshow(im_closing)
 
 # Image 4, 5
 # im_step_1 = mf.alpha_trimmed_mean(im_original_gray, window_size=3, alpha=2)
