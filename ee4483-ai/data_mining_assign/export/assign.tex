@@ -1,0 +1,115 @@
+% Created 2017-11-13 Mon 09:18
+% Intended LaTeX compiler: pdflatex
+\documentclass[titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\hypersetup{hidelinks=true}
+\setlength{\parindent}{2em}
+\usepackage[margin=1in]{geometry}
+\author{Hu Xiaoxiang \\
+U1521319A \\
+EEE \\
+}
+\date{11 Nov, 2017 \\
+}
+\title{\includegraphics[width=\textwidth]{logo_ntu_new.png} \\
+[5\baselineskip] ASSIGNMENT \\
+REPORT \\
+[5\baselineskip]}
+\hypersetup{
+ pdfauthor={Hu Xiaoxiang \\
+U1521319A \\
+EEE \\
+},
+ pdftitle={\includegraphics[width=\textwidth]{logo_ntu_new.png} \\
+[5\baselineskip] ASSIGNMENT \\
+REPORT \\
+[5\baselineskip]},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.1 (Org mode 9.1.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\pagenumbering{roman}
+\newpage
+\pagenumbering{arabic}
+
+\section{Question 1:}
+\label{sec:orgd317c5e}
+\begin{center}
+\begin{tabular}{rr}
+\hline
+Minimum Support (\%) & No. of Frequent Itemsets\\
+20 & 20\\
+10 & 68\\
+5 & 268\\
+3 & 659\\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Question 2:}
+\label{sec:org33e98e3}
+\begin{center}
+\begin{tabular}{rrrr}
+\hline
+Minimum Support (\%) & No. of Frequent Itemsets & No. of Frequent 3-Itemsets & No. of Frequent 2-Itemsets\\
+3 & 659 & 424 & 190\\
+\hline
+\end{tabular}
+\end{center}
+
+Percentage of frequent 3-itemset = 424 / 659 = 64.34\%
+
+Percentage of frequent 2-itemset = 190 / 659 = 28.83\%
+
+\section{Question 3:}
+\label{sec:org9a043f4}
+\begin{center}
+\begin{tabular}{rrr}
+\hline
+Minimum Support (\%) & Minimum Confidence (\%) & No. of Association Rules\\
+5 & 50 & 117\\
+10 & 50 & 0\\
+\hline
+\end{tabular}
+\end{center}
+
+The smaller the minimum support is, the more the number of strong rules generate.
+
+\section{Question 4:}
+\label{sec:org526304c}
+Rule1: Ice Cream, Olive, Tea --> Banana (support=3.3\%, confidence=100\%)
+
+Rule2: Banana, Ham, Salad --> Apple (support=3.3\%, confidence=100\%)
+
+Rule3: Ham, Diaper, Coffee --> Ice Cream (support=2.8\%, confidence=100\%)
+
+\section{Question 5:}
+\label{sec:org3fc3054}
+Interesting Rules: 
+
+Coffee, Salad, Lemon --> Egg, Apple (Minsup=2\%, Minconf=100\%, Lift = 10.588)
+
+Nuts, Coffee, Salad --> Apple, Ketchup (Minsup=2\%, Minconf=100\%, Lift = 9)
+
+These are the two most interesting rules I found when minsup is 2\% and minconf
+is 100\%. The measure used to identify the interestingness of the rule is Lift,
+which shows the correlaton between two itemsets. The higher the value of Lift
+is, the more positively correlated these two rules are.
+\end{document}

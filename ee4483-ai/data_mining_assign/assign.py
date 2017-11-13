@@ -10,4 +10,4 @@ import Orange
 #         data.append(row)
 
 data = Orange.data.Table("dataset.basket")
-data.save("dataset.tab")
+print(data.metas)
