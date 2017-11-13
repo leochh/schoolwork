@@ -1,964 +1,184 @@
-Banana	Ham	IceCream	Egg	Quiche	Olive	Diaper	Tea	Jam	Nuts	Apple	Ketchup	Coffee	Rootbeer	PeanutButter	Ginger	Salad	Fish	Lemon	Milk
-continuous	continuous	continuous	continuous	continuous	continuous	continuous	continuous	continuous	continuous	continuous	continuous	continuous	continuous	continuous	continuous	continuous	continuous	continuous	continuous
-																			
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 3)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 8)	1.0"
-"  (0, 9)	1.0"
-"  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0"
-"  (0, 8)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0"
-"  (0, 3)	1.0
-  (0, 4)	1.0
-  (0, 10)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0"
-"  (0, 6)	1.0
-  (0, 11)	1.0
-  (0, 15)	1.0"
-"  (0, 1)	1.0
-  (0, 3)	1.0
-  (0, 5)	1.0
-  (0, 10)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 16)	1.0"
-"  (0, 14)	1.0"
-"  (0, 2)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 16)	1.0"
-"  (0, 4)	1.0
-  (0, 15)	1.0"
-"  (0, 0)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 11)	1.0
-  (0, 17)	1.0"
-"  (0, 12)	1.0
-  (0, 16)	1.0"
-"  (0, 0)	1.0
-  (0, 3)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 13)	1.0
-  (0, 16)	1.0
-  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 3)	1.0
-  (0, 4)	1.0
-  (0, 8)	1.0
-  (0, 11)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 3)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 8)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 13)	1.0
-  (0, 17)	1.0
-  (0, 18)	1.0"
-"  (0, 2)	1.0
-  (0, 6)	1.0
-  (0, 8)	1.0
-  (0, 10)	1.0
-  (0, 15)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 8)	1.0
-  (0, 10)	1.0
-  (0, 13)	1.0
-  (0, 16)	1.0
-  (0, 17)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 10)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 16)	1.0
-  (0, 17)	1.0"
-"  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 4)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 16)	1.0
-  (0, 17)	1.0"
-"  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 3)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 15)	1.0
-  (0, 16)	1.0
-  (0, 18)	1.0"
-"  (0, 8)	1.0
-  (0, 12)	1.0"
-"  (0, 3)	1.0
-  (0, 7)	1.0
-  (0, 17)	1.0
-  (0, 18)	1.0"
-"  (0, 1)	1.0
-  (0, 3)	1.0
-  (0, 7)	1.0
-  (0, 12)	1.0
-  (0, 14)	1.0
-  (0, 18)	1.0"
-"  (0, 2)	1.0
-  (0, 3)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 10)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 17)	1.0"
-"  (0, 2)	1.0"
-"  (0, 12)	1.0"
-"  (0, 13)	1.0
-  (0, 16)	1.0"
-"  (0, 3)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 17)	1.0"
-"  (0, 1)	1.0
-  (0, 4)	1.0
-  (0, 7)	1.0
-  (0, 15)	1.0
-  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 3)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 9)	1.0
-  (0, 13)	1.0"
-"  (0, 2)	1.0
-  (0, 4)	1.0
-  (0, 7)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 14)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 3)	1.0
-  (0, 5)	1.0
-  (0, 7)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 12)	1.0
-  (0, 14)	1.0"
-"  (0, 18)	1.0"
-"  (0, 15)	1.0
-  (0, 18)	1.0"
-"  (0, 2)	1.0
-  (0, 4)	1.0
-  (0, 7)	1.0
-  (0, 12)	1.0"
-"  (0, 1)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 15)	1.0
-  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 2)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 17)	1.0"
-"  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 14)	1.0"
-"  (0, 0)	1.0
-  (0, 3)	1.0
-  (0, 7)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 15)	1.0
-  (0, 18)	1.0"
-"  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 11)	1.0
-  (0, 13)	1.0
-  (0, 15)	1.0
-  (0, 18)	1.0"
-"  (0, 1)	1.0
-  (0, 4)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 11)	1.0
-  (0, 15)	1.0
-  (0, 16)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 3)	1.0
-  (0, 5)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 17)	1.0
-  (0, 19)	1.0"
-"  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 7)	1.0
-  (0, 13)	1.0
-  (0, 16)	1.0
-  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 4)	1.0"
-"  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 3)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 10)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 6)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 12)	1.0"
-"  (0, 13)	1.0
-  (0, 14)	1.0"
-"  (0, 4)	1.0
-  (0, 6)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 2)	1.0
-  (0, 8)	1.0
-  (0, 11)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 4)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 9)	1.0
-  (0, 12)	1.0
-  (0, 17)	1.0
-  (0, 19)	1.0"
-"  (0, 0)	1.0
-  (0, 3)	1.0
-  (0, 6)	1.0
-  (0, 11)	1.0
-  (0, 14)	1.0
-  (0, 16)	1.0
-  (0, 18)	1.0"
-"  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 16)	1.0"
-"  (0, 3)	1.0
-  (0, 4)	1.0
-  (0, 8)	1.0
-  (0, 16)	1.0"
-"  (0, 17)	1.0"
-"  (0, 2)	1.0
-  (0, 4)	1.0
-  (0, 10)	1.0
-  (0, 13)	1.0
-  (0, 16)	1.0"
-"  (0, 3)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 8)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 15)	1.0
-  (0, 17)	1.0
-  (0, 19)	1.0"
-"  (0, 6)	1.0
-  (0, 8)	1.0
-  (0, 11)	1.0
-  (0, 14)	1.0"
-"  (0, 1)	1.0
-  (0, 5)	1.0
-  (0, 7)	1.0
-  (0, 10)	1.0
-  (0, 12)	1.0
-  (0, 17)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 10)	1.0
-  (0, 17)	1.0"
-"  (0, 1)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 7)	1.0
-  (0, 10)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 13)	1.0"
-"  (0, 3)	1.0"
-"  (0, 4)	1.0
-  (0, 15)	1.0"
-"  (0, 0)	1.0
-  (0, 2)	1.0
-  (0, 5)	1.0
-  (0, 7)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 19)	1.0"
-"  (0, 10)	1.0
-  (0, 17)	1.0"
-"  (0, 0)	1.0
-  (0, 3)	1.0
-  (0, 6)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 16)	1.0"
-"  (0, 16)	1.0
-  (0, 17)	1.0"
-"  (0, 5)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0"
-"  (0, 2)	1.0
-  (0, 9)	1.0
-  (0, 14)	1.0
-  (0, 19)	1.0"
-"  (0, 4)	1.0
-  (0, 9)	1.0
-  (0, 16)	1.0
-  (0, 19)	1.0"
-"  (0, 7)	1.0
-  (0, 13)	1.0
-  (0, 18)	1.0"
-"  (0, 12)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 11)	1.0"
-"  (0, 1)	1.0
-  (0, 4)	1.0
-  (0, 7)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 5)	1.0
-  (0, 7)	1.0
-  (0, 9)	1.0
-  (0, 11)	1.0
-  (0, 14)	1.0
-  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 8)	1.0
-  (0, 10)	1.0
-  (0, 12)	1.0
-  (0, 15)	1.0
-  (0, 17)	1.0"
-"  (0, 0)	1.0
-  (0, 2)	1.0
-  (0, 3)	1.0
-  (0, 8)	1.0
-  (0, 15)	1.0"
-"  (0, 2)	1.0
-  (0, 6)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 11)	1.0
-  (0, 13)	1.0"
-"  (0, 5)	1.0
-  (0, 10)	1.0"
-"  (0, 0)	1.0
-  (0, 3)	1.0
-  (0, 6)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 15)	1.0
-  (0, 19)	1.0"
-"  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 8)	1.0
-  (0, 11)	1.0
-  (0, 18)	1.0"
-"  (0, 3)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 16)	1.0
-  (0, 18)	1.0"
-"  (0, 1)	1.0
-  (0, 4)	1.0
-  (0, 15)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 17)	1.0
-  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 16)	1.0"
-"  (0, 14)	1.0"
-"  (0, 1)	1.0
-  (0, 6)	1.0
-  (0, 8)	1.0
-  (0, 15)	1.0"
-"  (0, 0)	1.0
-  (0, 5)	1.0
-  (0, 10)	1.0
-  (0, 16)	1.0
-  (0, 17)	1.0"
-"  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 12)	1.0
-  (0, 17)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 6)	1.0
-  (0, 8)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 14)	1.0
-  (0, 16)	1.0
-  (0, 17)	1.0"
-"  (0, 1)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 15)	1.0"
-"  (0, 0)	1.0
-  (0, 2)	1.0
-  (0, 3)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 8)	1.0
-  (0, 12)	1.0
-  (0, 15)	1.0
-  (0, 19)	1.0"
-"  (0, 0)	1.0
-  (0, 13)	1.0
-  (0, 15)	1.0"
-"  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 11)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 16)	1.0"
-"  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 19)	1.0"
-"  (0, 1)	1.0
-  (0, 5)	1.0
-  (0, 11)	1.0
-  (0, 17)	1.0"
-"  (0, 1)	1.0"
-"  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 6)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 17)	1.0"
-"  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 8)	1.0"
-"  (0, 2)	1.0
-  (0, 4)	1.0
-  (0, 6)	1.0
-  (0, 13)	1.0
-  (0, 15)	1.0
-  (0, 19)	1.0"
-"  (0, 4)	1.0
-  (0, 6)	1.0
-  (0, 9)	1.0
-  (0, 16)	1.0"
-"  (0, 3)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 14)	1.0
-  (0, 17)	1.0"
-"  (0, 1)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 13)	1.0
-  (0, 15)	1.0"
-"  (0, 4)	1.0
-  (0, 8)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 2)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 17)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 12)	1.0
-  (0, 17)	1.0
-  (0, 18)	1.0"
-"  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 9)	1.0
-  (0, 12)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 7)	1.0
-  (0, 13)	1.0
-  (0, 15)	1.0"
-"  (0, 7)	1.0
-  (0, 8)	1.0
-  (0, 11)	1.0
-  (0, 14)	1.0
-  (0, 19)	1.0"
-"  (0, 17)	1.0
-  (0, 19)	1.0"
-"  (0, 1)	1.0
-  (0, 9)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 18)	1.0"
-"  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 4)	1.0
-  (0, 7)	1.0
-  (0, 11)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 16)	1.0
-  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 2)	1.0
-  (0, 12)	1.0
-  (0, 17)	1.0
-  (0, 18)	1.0"
-"  (0, 2)	1.0
-  (0, 3)	1.0
-  (0, 4)	1.0
-  (0, 6)	1.0
-  (0, 10)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 15)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 3)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 10)	1.0
-  (0, 12)	1.0
-  (0, 17)	1.0"
-"  (0, 3)	1.0
-  (0, 4)	1.0
-  (0, 6)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 12)	1.0
-  (0, 15)	1.0
-  (0, 17)	1.0
-  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 9)	1.0
-  (0, 13)	1.0
-  (0, 18)	1.0"
-"  (0, 7)	1.0
-  (0, 18)	1.0"
-"  (0, 4)	1.0
-  (0, 9)	1.0
-  (0, 16)	1.0
-  (0, 19)	1.0"
-"  (0, 1)	1.0
-  (0, 5)	1.0"
-"  (0, 3)	1.0
-  (0, 12)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 5)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0"
-"  (0, 2)	1.0
-  (0, 7)	1.0
-  (0, 14)	1.0
-  (0, 16)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 3)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 15)	1.0
-  (0, 16)	1.0
-  (0, 17)	1.0
-  (0, 19)	1.0"
-"  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 19)	1.0"
-"  (0, 6)	1.0"
-"  (0, 17)	1.0
-  (0, 19)	1.0"
-"  (0, 4)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0"
-"  (0, 0)	1.0
-  (0, 6)	1.0
-  (0, 8)	1.0
-  (0, 11)	1.0
-  (0, 17)	1.0"
-"  (0, 4)	1.0
-  (0, 12)	1.0
-  (0, 14)	1.0"
-"  (0, 0)	1.0
-  (0, 3)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 11)	1.0
-  (0, 17)	1.0"
-"  (0, 1)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 17)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 4)	1.0
-  (0, 7)	1.0
-  (0, 10)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 16)	1.0
-  (0, 18)	1.0"
-"  (0, 7)	1.0
-  (0, 10)	1.0"
-"  (0, 5)	1.0
-  (0, 7)	1.0
-  (0, 9)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 15)	1.0
-  (0, 19)	1.0"
-"  (0, 2)	1.0
-  (0, 13)	1.0"
-"  (0, 3)	1.0
-  (0, 11)	1.0
-  (0, 17)	1.0"
-"  (0, 8)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 19)	1.0"
-"  (0, 10)	1.0"
-"  (0, 6)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 16)	1.0"
-"  (0, 3)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 9)	1.0
-  (0, 15)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 8)	1.0
-  (0, 14)	1.0"
-"  (0, 0)	1.0
-  (0, 5)	1.0
-  (0, 7)	1.0
-  (0, 15)	1.0
-  (0, 16)	1.0
-  (0, 19)	1.0"
-"  (0, 0)	1.0
-  (0, 2)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 15)	1.0
-  (0, 16)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 3)	1.0
-  (0, 4)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 19)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 3)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 16)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 7)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 13)	1.0
-  (0, 15)	1.0
-  (0, 17)	1.0
-  (0, 19)	1.0"
-"  (0, 4)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 11)	1.0
-  (0, 15)	1.0"
-"  (0, 1)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 7)	1.0
-  (0, 8)	1.0
-  (0, 10)	1.0
-  (0, 13)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 2)	1.0
-  (0, 6)	1.0
-  (0, 11)	1.0
-  (0, 15)	1.0
-  (0, 18)	1.0"
-"  (0, 14)	1.0"
-"  (0, 3)	1.0
-  (0, 6)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 15)	1.0
-  (0, 19)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 4)	1.0
-  (0, 7)	1.0
-  (0, 8)	1.0
-  (0, 10)	1.0
-  (0, 17)	1.0
-  (0, 18)	1.0"
-"  (0, 1)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 14)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 4)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 13)	1.0"
-"  (0, 16)	1.0"
-"  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 0)	1.0
-  (0, 2)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 10)	1.0
-  (0, 17)	1.0
-  (0, 19)	1.0"
-"  (0, 5)	1.0
-  (0, 7)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 19)	1.0"
-"  (0, 0)	1.0
-  (0, 7)	1.0
-  (0, 8)	1.0
-  (0, 10)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 14)	1.0
-  (0, 19)	1.0"
-"  (0, 8)	1.0
-  (0, 12)	1.0
-  (0, 13)	1.0
-  (0, 17)	1.0"
-"  (0, 5)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0"
-"  (0, 5)	1.0
-  (0, 11)	1.0
-  (0, 18)	1.0"
-"  (0, 0)	1.0
-  (0, 2)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 16)	1.0"
-"  (0, 16)	1.0"
-"  (0, 0)	1.0
-  (0, 3)	1.0
-  (0, 5)	1.0
-  (0, 6)	1.0
-  (0, 10)	1.0
-  (0, 12)	1.0
-  (0, 14)	1.0
-  (0, 16)	1.0
-  (0, 18)	1.0
-  (0, 19)	1.0"
-"  (0, 0)	1.0
-  (0, 3)	1.0
-  (0, 18)	1.0"
-"  (0, 2)	1.0
-  (0, 14)	1.0"
-"  (0, 6)	1.0
-  (0, 7)	1.0
-  (0, 10)	1.0
-  (0, 11)	1.0
-  (0, 12)	1.0
-  (0, 16)	1.0"
-"  (0, 1)	1.0
-  (0, 5)	1.0
-  (0, 11)	1.0
-  (0, 15)	1.0
-  (0, 19)	1.0"
-"  (0, 3)	1.0
-  (0, 7)	1.0
-  (0, 11)	1.0
-  (0, 15)	1.0"
-"  (0, 0)	1.0
-  (0, 1)	1.0
-  (0, 2)	1.0
-  (0, 3)	1.0
-  (0, 4)	1.0
-  (0, 7)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 16)	1.0"
-"  (0, 2)	1.0
-  (0, 10)	1.0
-  (0, 13)	1.0"
-"  (0, 1)	1.0
-  (0, 4)	1.0
-  (0, 8)	1.0
-  (0, 9)	1.0
-  (0, 10)	1.0
-  (0, 12)	1.0
-  (0, 14)	1.0
-  (0, 15)	1.0
-  (0, 17)	1.0"
+__basket_foo
+basket
+
+Banana Egg Quiche Olive Diaper Jam IceCream Tea Ham
+Nuts
+Apple Ketchup Nuts
+Jam PeanutButter Rootbeer Coffee
+Apple Egg Quiche Rootbeer Coffee
+Diaper Ketchup Ginger
+Apple Egg Olive Ginger PeanutButter Ham Salad
+PeanutButter
+IceCream Rootbeer Salad Coffee
+Quiche Ginger
+Banana Quiche Olive Diaper Ketchup Fish Tea
+Salad Coffee
+Banana Egg Quiche Olive Diaper Lemon Tea Rootbeer Salad
+Banana Egg Quiche Jam Lemon Ketchup PeanutButter Rootbeer Ham Milk
+Apple Egg Olive Diaper Jam Lemon Ketchup Fish Tea Rootbeer
+Apple Diaper Jam Lemon IceCream Ginger Milk
+Apple Banana Jam Lemon Fish Rootbeer Ham Salad Milk
+Apple Banana Quiche Olive Diaper Ginger Fish PeanutButter Ham Salad
+Apple Quiche Diaper IceCream Ketchup Nuts Fish Tea Ham Salad
+Apple Egg Lemon IceCream Ketchup Ginger Nuts Ham Salad Coffee
+Jam Coffee
+Egg Lemon Fish Tea
+Egg Lemon Tea PeanutButter Ham Coffee
+Apple Egg Olive Diaper IceCream Fish PeanutButter Rootbeer Coffee
+IceCream
+Coffee
+Rootbeer Salad
+Egg Olive Diaper Ginger Fish PeanutButter Rootbeer
+Quiche Lemon Ginger Tea Ham
+Banana Egg Diaper Nuts Tea Rootbeer
+Apple Quiche Jam IceCream Ketchup Nuts Tea PeanutButter Coffee
+Apple Banana Egg Olive Nuts Tea PeanutButter Ham Coffee
+Lemon
+Lemon Ginger
+Quiche IceCream Tea Coffee
+Apple Olive Diaper Jam Lemon Ginger Nuts Ham
+Apple Banana Olive Diaper Jam IceCream Ketchup Nuts Fish Tea
+Apple Ketchup PeanutButter
+Apple Banana Egg Lemon Ketchup Ginger Tea Rootbeer Coffee
+Olive Diaper Jam Lemon Ketchup Ginger Nuts Rootbeer
+Quiche Jam Ketchup Ginger Nuts Ham Salad
+Apple Banana Egg Olive Jam Nuts Fish Ham Milk
+Apple Lemon Ketchup Ginger Nuts PeanutButter Rootbeer
+Banana Lemon Tea Rootbeer Salad
+Banana Quiche Ham
+Apple Egg Diaper Lemon IceCream Tea PeanutButter Rootbeer Ham Coffee
+Apple Banana Diaper IceCream Nuts Ham Coffee
+PeanutButter Rootbeer
+Apple Quiche Diaper Lemon Ketchup Nuts Coffee Milk
+Jam Lemon IceCream Ketchup Milk
+Banana Quiche Diaper IceCream Nuts Fish Tea Ham Coffee Milk
+Banana Egg Diaper Lemon Ketchup PeanutButter Salad
+Olive Diaper IceCream Ketchup Ham Salad Coffee
+Egg Quiche Jam Salad
+Fish
+Apple Quiche IceCream Rootbeer Salad
+Egg Quiche Olive Jam Ketchup Ginger Fish Coffee Milk
+Diaper Jam Ketchup PeanutButter
+Apple Olive Lemon Fish Tea Ham Coffee Milk
+Apple Olive Diaper Fish Tea
+Apple Quiche Olive Lemon Tea Ham Milk
+Rootbeer
+Egg
+Quiche Ginger
+Banana Olive Jam IceCream Nuts Tea Milk
+Apple Fish
+Banana Egg Diaper Ginger PeanutButter Salad
+Fish Salad
+Olive Ketchup Rootbeer Coffee
+IceCream Nuts PeanutButter Milk
+Quiche Nuts Salad Milk
+Lemon Tea Rootbeer
+Lemon Coffee Milk
+Ketchup
+Quiche Tea Ham
+Banana Olive Lemon IceCream Ketchup Nuts Tea PeanutButter Ham
+Apple Banana Jam Ginger Fish Coffee
+Banana Egg Jam IceCream Ginger
+Diaper Jam IceCream Ketchup Nuts Rootbeer
+Apple Olive
+Banana Egg Diaper Ginger Rootbeer Coffee Milk
+Diaper Jam Lemon Ketchup Tea
+Apple Egg Lemon Ketchup Rootbeer Salad Coffee
+Quiche Ginger Ham
+Banana Jam Lemon Ketchup Nuts Fish PeanutButter Rootbeer Ham Coffee
+Apple Banana Jam Ketchup Nuts Salad Coffee
+PeanutButter
+Diaper Jam Ginger Ham
+Apple Banana Olive Fish Salad
+Olive Diaper Fish Tea Coffee
+Apple Banana Diaper Jam IceCream Ketchup Fish PeanutButter Ham Salad
+Apple Diaper Ginger Nuts Tea Ham
+Banana Egg Quiche Olive Diaper Jam IceCream Ginger Coffee Milk
+Banana Ginger Rootbeer
+Lemon
+Banana Ketchup Ginger PeanutButter Salad
+PeanutButter Rootbeer Coffee Milk
+Olive Ketchup Fish Ham
+Ham
+Lemon
+Banana Diaper IceCream Fish PeanutButter Rootbeer Ham
+Quiche Olive Diaper Jam Tea
+Quiche Diaper IceCream Ginger Rootbeer Milk
+Quiche Diaper Nuts Salad
+Egg Jam Nuts Fish PeanutButter
+Apple Quiche Olive Ginger Nuts Rootbeer Ham
+Apple Quiche Jam Lemon Ketchup
+Apple Banana Quiche Olive IceCream Ketchup Ginger Fish PeanutButter Rootbeer
+Banana Olive Diaper Lemon IceCream Fish Tea Ham Coffee
+Quiche Olive Lemon IceCream Ginger Nuts PeanutButter Ham Coffee Milk
+Ginger Tea Rootbeer
+Jam Ketchup Tea PeanutButter Milk
+Fish Milk
+Lemon Ginger Nuts PeanutButter Rootbeer Ham Milk
+Lemon
+Quiche Lemon IceCream Ketchup Ginger Tea PeanutButter Ham Salad
+Banana Lemon IceCream Fish Coffee
+Apple Egg Quiche Diaper Lemon IceCream Ginger Rootbeer Coffee Milk
+Apple Egg Olive Diaper Fish Coffee
+Egg Quiche Diaper Jam Lemon Ginger Nuts Fish Coffee
+Banana Lemon IceCream Nuts Rootbeer Ham
+Lemon Tea
+Quiche Nuts Salad Milk
+Olive Ham
+Egg Coffee
+Apple Banana Olive Nuts PeanutButter Rootbeer Ham
+Lemon IceCream Tea PeanutButter Salad Milk
+Apple Egg Ketchup Ginger Fish Salad Coffee Milk
+Apple Ginger Nuts PeanutButter Rootbeer Coffee Milk
+Diaper
+Fish Milk
+Quiche PeanutButter Rootbeer
+Banana Diaper Jam Ketchup Fish
+Quiche PeanutButter Coffee
+Banana Egg Diaper Ketchup Fish Tea
+Quiche Olive Fish Ham
+Apple Banana Quiche Lemon Ginger Tea PeanutButter Ham Salad
+Apple Tea
+Olive Ketchup Ginger Nuts Tea Coffee Milk
+IceCream Rootbeer
+Egg Ketchup Fish
+Jam PeanutButter Rootbeer Coffee Milk
+Apple
+Diaper Jam Ginger Nuts PeanutButter Salad
+Egg Quiche Olive Lemon Ginger Nuts Milk
+Jam PeanutButter
+Banana Olive Ginger Tea Salad Milk
+Apple Banana Jam IceCream Ketchup Ginger Nuts Rootbeer Salad Coffee
+Apple Banana Egg Quiche Ketchup Ginger PeanutButter Rootbeer Ham Milk
+Apple Banana Egg Lemon Ketchup Nuts Ham Salad Coffee Milk
+Apple Ginger Nuts Fish Tea Rootbeer Milk
+Quiche
+Banana Diaper Ketchup Ginger Tea Ham
+Apple Quiche Olive Jam Lemon Tea Rootbeer Ham Milk
+Diaper Lemon IceCream Ketchup Ginger
+PeanutButter
+Egg Diaper Jam Ginger Nuts Rootbeer Coffee Milk
+Apple Banana Quiche Jam Lemon IceCream Fish Tea Ham
+Diaper Lemon Tea PeanutButter Ham Milk
+Lemon
+Banana Quiche Olive Diaper Tea Rootbeer
+Salad
+Olive Diaper Jam Lemon Nuts PeanutButter Rootbeer Coffee Milk
+Apple Banana Olive Diaper IceCream Fish Tea Milk
+Olive Jam Ginger Nuts Tea PeanutButter Milk
+Apple Banana Jam Tea PeanutButter Rootbeer Coffee Milk
+Jam Fish Rootbeer Coffee
+Apple Olive Nuts
+Olive Lemon Ketchup
+Banana Jam IceCream Nuts Salad
+Salad
+Apple Banana Egg Olive Diaper Lemon PeanutButter Salad Coffee Milk
+Banana Egg Lemon
+IceCream PeanutButter
+Apple Diaper Ketchup Tea Salad Coffee
+Olive Ketchup Ginger Ham Milk
+Egg Ketchup Ginger Tea
+Apple Banana Egg Quiche IceCream Nuts Tea Ham Salad
+Apple IceCream Rootbeer
+Apple Quiche Jam Ginger Nuts Fish PeanutButter Ham Coffee
+

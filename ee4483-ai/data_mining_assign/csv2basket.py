@@ -21,6 +21,7 @@ for e in s.splitlines():
     data.append(ex)
 
 out_path = 'dataset.basket'
-f = open(out_path, 'wb')
-f.write(data)
-f.close()
+# f = open(out_path, 'wb')
+# f.write(bin(data))
+# f.close()
+data.save(out_path)
