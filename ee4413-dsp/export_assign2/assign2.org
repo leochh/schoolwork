@@ -5,12 +5,54 @@
   fingerprint detection, and so on. The objective of this mini project is using
   C5515 to implement a 3-band audio equalizer with graphical control via
   embedded button, LED and LCD.
+
 * Design And Implementation
-  Matlab's 'fdatool' is used to obtain the coefficients of the FIR filter for
-  the first step. To specify the passband gain and stopband attenuation,
-  constrained equal ripple method needs to be choosed. As for cut-off frequency,
-  some offset value can be added also to achieve a precise gain control at the
-  band edge. Besides the setting of band gain, the filter's quantization
-  property should be took care of too. Since C5515 is a 16-bit fixed point
-  processor, the word length should be 16 bits. Q15 format determines the
-  fraction length is 15 bits. 
+** FIR Filter Coefficients Generation
+   Fdatool in Matlab is used to obtain the coefficients of the FIR filter. To
+   define the passband gain and stopband attenuation, constrained equal ripple
+   method needs to be chosen. Even though the band edge frequency for three
+   bands have already been specified, the cut-off frequency, however, does not
+   need to follow the specification exactly. Some offset frequency actually can
+   be added in order to achieve a precise gain control at the band edge. 
+
+   Besides the setting of band gain, the filter's quantization parameters should
+   be adjusted too. For a 16-bit fixed point processor like C5515, the word
+   length should be 16 bits, and Q15 format determines that the fraction length
+   needs to be 15 bits.
+
+** Individual Band Gain Adjustment And Total Band Gain Calculation 
+   According to the associativity property of the Convolution, the
+   implementation of multiple FIR filters of same order can be simplified into
+   one FIR filter whose coefficients are the combined coefficients.
+
+   $$y = x \ast h_1 \ast h_2 ... \ast h_n = x \ast \sum\limits_{i=1}^n h_i$$
+   
+   To perform the gain adjustment, each coefficient of the FIR filter needs to
+   multiply by the gain value. Since the gain is a constant value, the
+   multiplication operation can be performed directly on the filter's
+   coefficients.
+
+   $$F\{a \cdot H(v)\} = a \ast h(f)$$
+
+   To perform gain multiplication, each value of the gain needs to be hard coded
+   into hexadecimal for faster processing speed. Two Q15 format number's
+   multiplication will produce a Q30 format fixed-point number with 2 sign bits
+   ahead, hence it needs to be shifted to the right for 15 bits and chop the
+   redundant first sign bit.
+
+** Button And LED Implementation 
+   The implementation of button and LED control is similar to what have done in
+   Ex.1 and Ex.2. For every running cycle, the main program is continue
+   monitoring the push button condition. Each time when a button is pushed, the
+   program checks the reading value to decide which button is pushed and react
+   correspondingly. In my program, button 1 controls the LED toggling and button
+   2 controls the gain adjustment.
+
+** LCD Implementation
+   This device includes a LCD Interface Display Driver (LIDD) controller, which
+   can be used for implementation of User Interface Menu Navigation. After
+   initialization of the LCD display, it require the clear function to clean the
+   screen. One can utilize the function 'OSD9616_send()' to print character or
+   string on the screen. The screen has top and bottom
+
+   
