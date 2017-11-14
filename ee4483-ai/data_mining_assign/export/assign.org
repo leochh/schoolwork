@@ -1,41 +1,72 @@
-Question 1:   
-     |---------------------+--------------------------|
-     | Minimum Support (%) | No. of Frequent Itemsets |
-     |                  20 |                       20 |
-     |                  10 |                       68 |
-     |                   5 |                      268 |
-     |                   3 |                      659 |
-     |---------------------+--------------------------|
+#+LaTeX_CLASS: article
+#+LaTeX_CLASS_OPTIONS: [setspace, doublespace]
+#+LaTeX_CLASS_OPTIONS: [a4paper]
+#+LaTeX_CLASS_OPTIONS: [12pt]
+#+LaTeX_CLASS_OPTIONS: [titlepage]
+#+LaTeX_HEADER: \hypersetup{hidelinks=true}
+#+LaTeX_HEADER: \setlength{\parindent}{2em}
+#+LaTeX_HEADER: \usepackage[margin=1in]{geometry}
+#+LaTeX_HEADER: \usepackage{indentfirst}
+#+TITLE: \includegraphics[width=\textwidth]{logo_ntu_new.png} \\
+#+TITLE: [5\baselineskip]
+#+TITLE: EE4483 \\
+#+TITLE: DATA-MINING ASSIGNMENT \\ 
+#+TITLE: REPORT \\
+#+TITLE: [5\baselineskip]
+#+AUTHOR: Hu Xiaoxiang \\
+#+AUTHOR: U1521319A \\
+#+AUTHOR: EEE \\
+#+DATE: 13 Nov, 2017 \\
+#+LaTeX: \pagenumbering{roman}
+#+LaTeX: \newpage
+#+LaTeX: \pagenumbering{arabic}
+#+STARTUP: noinlineimages
+
+* Question 1:   
+  |---------------------+--------------------------|
+  | Minimum Support (%) | No. of Frequent Itemsets |
+  |                  20 |                       20 |
+  |                  10 |                       68 |
+  |                   5 |                      268 |
+  |                   3 |                      659 |
+  |---------------------+--------------------------|
    
-Question 2:
-     |---------------------+--------------------------+----------------------------+----------------------------|
-     | Minimum Support (%) | No. of Frequent Itemsets | No. of Frequent 3-Itemsets | No. of Frequent 2-Itemsets |
-     |                   3 |                      659 |                        424 |                        190 |
-     |---------------------+--------------------------+----------------------------+----------------------------|
-   
-     Percentage of frequent 3-itemset = 424 / 659 = 64.34%
-     Percentage of frequent 2-itemset = 190 / 659 = 28.83%
+* Question 2:
+  |---------------------+--------------------------+----------------------------+----------------------------|
+  | Minimum Support (%) | No. of Frequent Itemsets | No. of Frequent 3-Itemsets | No. of Frequent 2-Itemsets |
+  |                   3 |                      659 |                        424 |                        190 |
+  |---------------------+--------------------------+----------------------------+----------------------------|
 
-Question 3:
-     |---------------------+------------------------+--------------------------|
-     | Minimum Support (%) | Minimum Confidence (%) | No. of Association Rules |
-     |                   5 |                     50 |                      117 |
-     |                  10 |                     50 |                        0 |
-     |---------------------+------------------------+--------------------------|
+  Percentage of frequent 3-itemset = 424 / 659 = 64.34%
 
-     The smaller the minimum support is, the more the number of strong rules generate.
+  Percentage of frequent 2-itemset = 190 / 659 = 28.83%
 
-Question 4:
-     Rule1: Ice Cream, Olive, Tea --> Banana
-     Rule2: Banana, Ham, Salad --> Apple
-     Rule3: Ham, Diaper, Coffee --> Ice Cream
+* Question 3:
+  |---------------------+------------------------+--------------------------|
+  | Minimum Support (%) | Minimum Confidence (%) | No. of Association Rules |
+  |                   5 |                     50 |                      117 |
+  |                  10 |                     50 |                        0 |
+  |---------------------+------------------------+--------------------------|
 
-Question 5:
-     Interesting Rules:
-     Coffee, Salad, Lemon --> Egg, Apple   (Minsup=2%, Minconf=100%, Lift = 10.588)
-     Nuts, Coffee, Salad --> Apple, Ketchup     (Minsup=2%, Minconf=100%, Lift = 9)
-     
-     These are the two most interesting rules I found when minsup is 2% and
-     minconf is 100%. The measure used to identify the interestingness of the
-     rule is Lift, which shows the correlaton between two itemsets. The higher
-     the value of Lift is, the more positively correlated these two rules are.
+  Explanation: The smaller the minimum support is, the more the number of strong rules generate.
+
+* Question 4:
+  Rule1: Ice Cream, Olive, Tea --> Banana (minsup=3.3%)
+
+  Rule2: Banana, Ham, Salad --> Apple (minsup=3.3%)
+
+  Rule3: Ham, Diaper, Coffee --> Ice Cream (minsup=2.8%)
+
+* Question 5:
+  Interesting Rules:
+
+  Coffee, Salad, Lemon --> Egg, Apple   (Minsup=2%, Minconf=100%, Lift = 10.588)
+
+  Nuts, Coffee, Salad --> Apple, Ketchup     (Minsup=2%, Minconf=100%, Lift = 9)
+
+  These are the two most interesting rules I found when minimum support is 2%
+  and minimum confidence is 100%. The measure used to identify the
+  interestingness of the rule is lift. Lift shows the correlaton between the two
+  itemsets. If the lift of the rules is high, it means the probability of
+  occurrence of the antecedent is low. The higher the value of lift is, the more
+  positively correlated these two datasets are.
