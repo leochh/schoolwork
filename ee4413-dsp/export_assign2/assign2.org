@@ -1,3 +1,27 @@
+#+LaTeX_CLASS: article
+#+LaTeX_CLASS_OPTIONS: [setspace, doublespace]
+#+LaTeX_CLASS_OPTIONS: [a4paper]
+#+LaTeX_CLASS_OPTIONS: [12pt]
+#+LaTeX_CLASS_OPTIONS: [titlepage]
+#+LaTeX_HEADER: \hypersetup{hidelinks=true}
+#+LaTeX_HEADER: \setlength{\parindent}{2em}
+#+LaTeX_HEADER: \usepackage[margin=1in]{geometry}
+#+LaTeX_HEADER: \usepackage[toc,page]{appendix}
+#+TITLE: \includegraphics[width=\textwidth]{logo_ntu_new.png} \\
+#+TITLE: [5\baselineskip]
+#+TITLE: EE4413 \\
+#+TITLE: ASSIGNMENT2 \\
+#+TITLE: REPORT \\
+#+TITLE: [5\baselineskip]
+#+AUTHOR: Hu Xiaoxiang \\
+#+AUTHOR: U1521319A \\
+#+AUTHOR: EEE \\
+#+DATE: 14 Nov, 2017 \\
+#+LaTeX: \pagenumbering{roman}
+#+LaTeX: \newpage
+#+LaTeX: \pagenumbering{arabic}
+#+STARTUP: noinlineimages
+
 * Introduction
   The Digital Signal Processor (DSP) used in this mini project is TI's TMS
   320C5515. C5515 is a 16-bit fixed-point processor and can be used for
@@ -13,7 +37,16 @@
    method needs to be chosen. Even though the band edge frequency for three
    bands have already been specified, the cut-off frequency, however, does not
    need to follow the specification exactly. Some offset frequency actually can
-   be added in order to achieve a precise gain control at the band edge. 
+   be added in order to achieve a precise gain control at the band edge.
+
+   #+BEGIN_center
+   #+ATTR_LaTeX: :width 0.32\textwidth :center
+   [[file:lp_mag.png]]
+   #+ATTR_LaTeX: :width 0.32\textwidth :center
+   [[file:bp_mag.png]]
+   #+ATTR_LaTeX: :width 0.32\textwidth :center
+   [[file:hp_mag.png]]
+   #+END_center
 
    Besides the setting of band gain, the filter's quantization parameters should
    be adjusted too. For a 16-bit fixed point processor like C5515, the word
@@ -27,6 +60,19 @@
 
    $$y = x \ast h_1 \ast h_2 ... \ast h_n = x \ast \sum\limits_{i=1}^n h_i$$
    
+   #+BEGIN_listing 
+   #+BEGIN_SRC c
+    void band_mix(){
+      int i;
+      for(i=0;i<TAPS;i++)
+        band_coef_mixed[i] = band1_coef_changed[i] + band2_coef_changed[i] + band3_coef_changed[i];
+    }
+   #+END_SRC    
+   #+LaTeX: \centering
+   #+LaTeX: \caption{List 1: Band Coefficients Mixing}
+   #+LaTeX: \newline
+   #+END_listing
+
    To perform the gain adjustment, each coefficient of the FIR filter needs to
    multiply by the gain value. Since the gain is a constant value, the
    multiplication operation can be performed directly on the filter's
@@ -40,19 +86,179 @@
    ahead, hence it needs to be shifted to the right for 15 bits and chop the
    redundant first sign bit.
 
-** Button And LED Implementation 
-   The implementation of button and LED control is similar to what have done in
+   #+BEGIN_listing 
+   #+BEGIN_SRC c
+    for(i=0;i<TAPS;i++){
+        band1_coef_changed[i]=(Int16)(((Int32)BAND1_COEF[i]*
+                              (Int32)band_gain_hex[band1_gain_selection])>>15);
+        band2_coef_changed[i]=(Int16)(((Int32)BAND2_COEF[i]*
+                              (Int32)band_gain_hex[band2_gain_selection])>>15);
+        band3_coef_changed[i]=(Int16)(((Int32)BAND3_COEF[i]*
+                              (Int32)band_gain_hex[band3_gain_selection])>>15);
+      }
+   #+END_SRC    
+   #+LaTeX: \centering
+   #+LaTeX: \caption{List 2: Gain Multiplication}
+   #+LaTeX: \newline
+   #+END_listing
+
+** Button And FIR Filter 
+   The implementation of button is similar to what have done in
    Ex.1 and Ex.2. For every running cycle, the main program is continue
    monitoring the push button condition. Each time when a button is pushed, the
    program checks the reading value to decide which button is pushed and react
    correspondingly. In my program, button 1 controls the LED toggling and button
    2 controls the gain adjustment.
 
+   #+BEGIN_listing 
+   #+BEGIN_SRC c
+    btn_value = Get_Key_Human();
+    if (btn_value != NoKey){
+      check_btn_push(btn_value);
+    }
+   #+END_SRC    
+   #+LaTeX: \centering
+   #+LaTeX: \caption{List 3: Check Button Condition}
+   #+LaTeX: \newline
+   #+END_listing
+
+   FIR function from the external library is used to read and write audio signal. 
+
+   #+BEGIN_listing 
+   #+BEGIN_SRC c
+    fir(&x_right[0],&band_coef_mixed[0],&r_right[0],&dbuffer_right[0],1,TAPS);
+    fir(&x_left[0],&band_coef_mixed[0],&r_left[0],&dbuffer_left[0],1,TAPS);
+   #+END_SRC    
+   #+LaTeX: \centering
+   #+LaTeX: \caption{List 4: FIR Filter}
+   #+LaTeX: \newline
+   #+END_listing
+
 ** LCD Implementation
    This device includes a LCD Interface Display Driver (LIDD) controller, which
    can be used for implementation of User Interface Menu Navigation. After
    initialization of the LCD display, it require the clear function to clean the
    screen. One can utilize the function 'OSD9616_send()' to print character or
-   string on the screen. The screen has top and bottom
+   string on the screen. The screen has top and bottom planes and each of them
+   needs to be set separately.
+
+   #+BEGIN_listing 
+   #+BEGIN_SRC c
+    void printLetter(Uint8 font_array[4]){
+      OSD9616_send(0x40,font_array[0]);
+      OSD9616_send(0x40,font_array[1]);
+      OSD9616_send(0x40,font_array[2]);
+      OSD9616_send(0x40,font_array[3]);
+      OSD9616_send(0x40,0x00);  // Line blank for space
+    }
+
+    void set_plane(int i){
+      OSD9616_send(0x00,0x00);   // Set low column address
+        OSD9616_send(0x00,0x10);   // Set high column address
+      if (i == 0){
+        OSD9616_send(0x00,0xb0); // Set page for page 0 to page 5
+      } else if (i == 1){
+        OSD9616_send(0x00,0xb1); // Set page for page 0 to page 5
+      }
+    }
+   #+END_SRC    
+   #+LaTeX: \centering
+   #+LaTeX: \caption{List 5: LCD Setting And Printing}
+   #+LaTeX: \newline
+   #+END_listing
+
+** Timer Interrupt And LED Blinking
+   To enable timer interrupt, IER0 and IFR0 have to be set. According to C5515
+   DSP System Guide, the CPU has only one interrupt flag that is shared among
+   the three timers. Since the interrupt flag is shared, software must have a
+   means of determining which timer instance caused the interrupt. Therefore,
+   the timer interrupt aggregation flag register (TIAFR) is a secondary flag
+   register that serves this purpose.
+
+   For the three general purpose timer, each of them has a count register
+   (TIMCNTn) which consists of two 16-bit words (TIMCNT1 and TIMCNT2) and a
+   period register (TIMPRDn) which also consists of two 16-bit words (TIMPRD1
+   and TIMPRD2). When the timer is set to start the contents of the TIMPRDn
+   register is loaded into the TIMCNT register and begins to count down. TCR is
+   the timer control register. When the LSB of TCR is set to 1, the timer starts
+   to count down.
+
+   #+BEGIN_listing 
+   #+BEGIN_SRC c
+    void Reset();
+    interrupt void Timer_Handler()
+    {
+      if (band_selection == 1){
+        if (led1 == 0){
+          USBSTK5515_ULED_on(1);
+          led1 = 1;
+        } else {
+          USBSTK5515_ULED_off(1);
+          led1 = 0;
+        }
+      }
+      if (band_selection == 2){
+        if (led2 == 0){
+          USBSTK5515_ULED_on(2);
+          led2 = 1;
+        } else {
+          USBSTK5515_ULED_off(2);
+          led2 = 0;
+        }
+      }
+      if (band_selection == 3){
+        if (led3 == 0){
+          USBSTK5515_ULED_on(3);
+          led3 = 1;
+        } else {
+          USBSTK5515_ULED_off(3);
+          led3 = 0;
+        }
+      }
+      //printf("timer on %d\n", TIAFR);
+    }
+
+    Uint16 time_set;
+    Uint32 reset_loc = (Uint32)Reset;
+
+    void Timer_setup()
+    {
+
+      //Set up Interrupt Vector Pointer Table
+      IVPD = reset_loc >> 8;
+      IVPH = reset_loc >> 8;
+
+      *((Uint32*)((reset_loc + TINT)>>1)) = (Uint32)Timer_Handler; //Table points to our handler
+
+
+      IER0 |= (1 << TINT_BIT);//enable interrupt
+      IFR0 &= (1 << TINT_BIT);//clear the flag
+
+      TCR0 = TIME_STOP;
+      // Set total period 
+      TPR0_1 = 0xFFFF; 
+      TPR0_2 = time_offset + 4 * 16;
+      // Set count down register
+      TCR0_1 = 0x0001;
+      TCR0_2 = 0x0000;
+
+      // Clear Timer Interrupt Flag
+      TIAFR = 0x0001;
+      TCR0 = TIME_START_AUTOLOAD;
+    }
+   #+END_SRC    
+   #+LaTeX: \centering
+   #+LaTeX: \caption{List 6: Timer Interrupt And LED Blinking}
+   #+LaTeX: \newline
+   #+END_listing
 
    
+
+* Conclusion
+  In summary, the design and the implementation meet the requirement of this
+  project. The Audio CODEC function block works compatibly with the button, LCD,
+  LED, and Timer Interrupt.
+
+
+* Appendix
+Source Code: https://github.com/seanhxx/schoolwork/tree/master/ee4413-dsp/assignment2
