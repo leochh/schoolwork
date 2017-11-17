@@ -1,5 +1,6 @@
 import numpy as np
 import collections
+import matplotlib.pyplot as plt
 
 
 def load_image_into_numpy_array(image):
@@ -101,3 +102,14 @@ def gray_level_reversal(im_np):
     new_im = 255 - im_np
     return new_im
 
+
+def plot_multi_img(titles, images, grid):
+    num = len(titles)
+    if num == grid[0] * grid[1]:
+        for i in range(num):
+            plt.subplot(grid[0], grid[1], i+1)
+            plt.imshow(images[i], 'gray')
+            plt.title(titles[i])
+            plt.xticks([])
+            plt.yticks([])
+        plt.show()

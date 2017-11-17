@@ -23,6 +23,20 @@
 #+STARTUP: noinlineimages
 
 * Question 1:   
+  #+BEGIN_center
+  #+ATTR_LaTeX: :width 0.49\textwidth :center
+  [[file:minsup20.png]]
+  #+ATTR_LaTeX: :width 0.49\textwidth :center
+  [[file:minsup10.png]]
+  #+END_center
+
+  #+BEGIN_center
+  #+ATTR_LaTeX: :width 0.49\textwidth :center
+  [[file:minsup5.png]]
+  #+ATTR_LaTeX: :width 0.49\textwidth :center
+  [[file:minsup3.png]]
+  #+END_center
+
   |---------------------+--------------------------|
   | Minimum Support (%) | No. of Frequent Itemsets |
   |                  20 |                       20 |
@@ -32,6 +46,13 @@
   |---------------------+--------------------------|
    
 * Question 2:
+  #+BEGIN_center
+  #+ATTR_LaTeX: :width 0.49\textwidth :center
+  [[file:minsup3_3.png]]
+  #+ATTR_LaTeX: :width 0.49\textwidth :center
+  [[file:minsup3_2.png]]
+  #+END_center
+
   |---------------------+--------------------------+----------------------------+----------------------------|
   | Minimum Support (%) | No. of Frequent Itemsets | No. of Frequent 3-Itemsets | No. of Frequent 2-Itemsets |
   |                   3 |                      659 |                        424 |                        190 |
@@ -42,6 +63,13 @@
   Percentage of frequent 2-itemset = 190 / 659 = 28.83%
 
 * Question 3:
+  #+BEGIN_center
+  #+ATTR_LaTeX: :width 0.49\textwidth :center
+  [[file:minsup5_mincon50.png]]
+  #+ATTR_LaTeX: :width 0.49\textwidth :center
+  [[file:minsup5_mincon50.png]]
+  #+END_center
+
   |---------------------+------------------------+--------------------------|
   | Minimum Support (%) | Minimum Confidence (%) | No. of Association Rules |
   |                   5 |                     50 |                      117 |
@@ -51,6 +79,10 @@
   Explanation: The smaller the minimum support is, the more the number of strong rules generate.
 
 * Question 4:
+  #+BEGIN_center
+  [[file:mincon100_3.png]]
+  #+END_center
+
   Rule1: Ice Cream, Olive, Tea --> Banana (minsup=3.3%)
 
   Rule2: Banana, Ham, Salad --> Apple (minsup=3.3%)
@@ -58,6 +90,10 @@
   Rule3: Ham, Diaper, Coffee --> Ice Cream (minsup=2.8%)
 
 * Question 5:
+  #+BEGIN_center
+  [[file:interest.png]]
+  #+END_center
+
   Interesting Rules:
 
   Coffee, Salad, Lemon --> Egg, Apple   (Minsup=2%, Minconf=100%, Lift = 10.588)
