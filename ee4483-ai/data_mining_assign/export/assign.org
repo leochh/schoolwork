@@ -25,16 +25,16 @@
 * Question 1:   
   #+BEGIN_center
   #+ATTR_LaTeX: :width 0.49\textwidth :center
-  [[file:minsup20.png]]
+  [[file:minsup20.PNG]]
   #+ATTR_LaTeX: :width 0.49\textwidth :center
-  [[file:minsup10.png]]
+  [[file:minsup10.PNG]]
   #+END_center
 
   #+BEGIN_center
   #+ATTR_LaTeX: :width 0.49\textwidth :center
-  [[file:minsup5.png]]
+  [[file:minsup5.PNG]]
   #+ATTR_LaTeX: :width 0.49\textwidth :center
-  [[file:minsup3.png]]
+  [[file:minsup3.PNG]]
   #+END_center
 
   |---------------------+--------------------------|
@@ -48,9 +48,9 @@
 * Question 2:
   #+BEGIN_center
   #+ATTR_LaTeX: :width 0.49\textwidth :center
-  [[file:minsup3_3.png]]
+  [[file:minsup3_3.PNG]]
   #+ATTR_LaTeX: :width 0.49\textwidth :center
-  [[file:minsup3_2.png]]
+  [[file:minsup3_2.PNG]]
   #+END_center
 
   |---------------------+--------------------------+----------------------------+----------------------------|
@@ -65,9 +65,9 @@
 * Question 3:
   #+BEGIN_center
   #+ATTR_LaTeX: :width 0.49\textwidth :center
-  [[file:minsup5_mincon50.png]]
+  [[file:minsup5_mincon50.PNG]]
   #+ATTR_LaTeX: :width 0.49\textwidth :center
-  [[file:minsup5_mincon50.png]]
+  [[file:minsup10_mincon50.PNG]]
   #+END_center
 
   |---------------------+------------------------+--------------------------|
@@ -80,7 +80,7 @@
 
 * Question 4:
   #+BEGIN_center
-  [[file:mincon100_3.png]]
+  [[file:mincon100_3.PNG]]
   #+END_center
 
   Rule1: Ice Cream, Olive, Tea --> Banana (minsup=3.3%)
@@ -91,7 +91,7 @@
 
 * Question 5:
   #+BEGIN_center
-  [[file:interest.png]]
+  [[file:interest.PNG]]
   #+END_center
 
   Interesting Rules:
