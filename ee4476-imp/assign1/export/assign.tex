@@ -1,4 +1,4 @@
-% Created 2017-11-12 Sun 21:23
+% Created 2017-11-21 Tue 12:56
 % Intended LaTeX compiler: pdflatex
 \documentclass[titlepage]{article}
 \usepackage[utf8]{inputenc}
@@ -51,37 +51,47 @@ REPORT \\
 \pagenumbering{arabic}
 
 \section{Introduction}
-\label{sec:orgb0c446c}
+\label{sec:org1e6f45b}
 With the proliferation of digital text sources in recent decades, such as the
 Internet and the mobile phone, there is a increasing need for document image
 processing and optical character recognition (OCR). However, many of the
 original document images are distorted due to noise, under exposure, or motion
 blur. Because of the different types of degradation in different images, each
-category of them has to be treated separately. This report mainly explains the
-procedures applied on the given sample images, as well as the source code of
-the process algorithms.
+category of them has to be treated separately. This report includes the
+procedures which I used to process the given sample images, as well as the
+source code of the process algorithms.
 
-\section{Procedure And Algorithm}
-\label{sec:orgec8d273}
-In this project, most of the algorithms are implemented by Python, while there
-is still one image's process requiring to use Matlab function through Matlab
-Python API. To binarize a color image, the first step is changing the color
-map from 'RGB' to 'Gray Level'. In Python, 'pillow' is one of the basic image
-processing libraries and is what I used for image reading and color map
-converting. According to 'pillow' documentation, when translating a color image
-to black and white, the library uses the ITU-R 601-2 luma transform: 
+\section{Procedures And Algorithm}
+\label{sec:org2b46001}
+In this project, most of the algorithms are implemented in Python, while some
+of the processes still require to use Matlab function, which is implemented
+through Matlab Python API. 
+
+To binarize a color image, the first step is to change the color map from
+'RGB' to 'Gray Level'. In Python, 'pillow' is one of the basic image
+processing libraries for image reading and color map converting. According to
+its documentation, when translating a color image to black and white, the
+library uses the ITU-R 601-2 luma transform:
 
 $$ L = 0.299 * R + 0.587 * G + 0.114 * B $$
 
-Image 1, 2, 3 have relatively high contrast between its text and background
-and hence can use the same way to process. In this project, I choose n-bit
-slicing to extract the most significant bit of gray level for each pixel. Note
-that 'im\(_{\text{np}}\)' is a 'numpy' array to store gray level value of images.
+The histogram of image 1, 2, 3 is shown as below. The peak in the histogram is
+the background. It shows that these three images have relatively high contrast
+between its text and background. After several experiment of different
+methods, it finally turns out that the n-bit slicing method performs best.
+Note that 'im\(_{\text{np}}\)' in the source code is a 'numpy' array, which is used to
+store images' gray value.
+
+\begin{center}
+\includegraphics[width=0.32\textwidth]{img_1_hist.png}
+\includegraphics[width=0.32\textwidth]{img_2_hist.png}
+\includegraphics[width=0.32\textwidth]{img_3_hist.png}
+\end{center}
 
 \begin{listing}
 \begin{verbatim}
 # Image 1, 2, 3
-im_final = pp.n_bit_plane_slice(im_original_gray, 1)
+im_final = pp.n_bit_plane_slice(im_original_gray, 1) // 1-bit slicing
 \end{verbatim}
 \centering
 \caption{List 1: Setting For Image 1, 2, 3}
@@ -124,14 +134,16 @@ Image 4 and 5 have strong shadow on them, hence it becomes difficult for
 global threshold. However a local threshold using Otsu's method can improve
 the processed image's quality significantly. Before applying threshold,
 alpha-trimmed mean filter is used to remove noise and smooth the image. The
-local Otsu's threshold method is implemented in the 'skimage.filters.rank'
-library. As shown in the list below, the 'rad' variable specifies the window
-size of the local Otsu's threshold. One limitation of the local Otsu's
-threshold is that it causes black spot at output. With larger window size,
-this effect can be partly eliminated. However, the text resolution will also
-decrease. To solve this problem, it can be applied a mask like that of
-Image 9. Unfortunately the line mask does not work for Image 4 and 5 which
-have strong shadow.
+local Otsu's threshold method is from the 'skimage.filters.rank' library. As
+shown in the list below, the 'rad' variable specifies the radius of a
+disk-like window for local Otsu's threshold. 
+
+From the picture it can be noticed that one problem of this local Otsu's
+threshold is the black spot on the background, which is mainly due to the
+uneven illumination on the image. This problem can be partly eliminated by
+enlarging the window size, however, this decreases the text resolution also.
+In image 9, this problem is solved by applying a line mask. Unfortunately, the
+it does not work for Image 4 and 5, which have much strong shadow on it.
 
 \begin{listing}
 \begin{verbatim}
@@ -188,12 +200,6 @@ def otsu_threshold(im_np, rad):
 \includegraphics[width=0.32\textwidth]{img_5_output_otsu.png}
 \end{center}
 
-Image 6 and 7 can be processed by global threshold method. One way to
-implement the global threshold is k-means algorithm. However, it is better to
-use Lloyd algorithm to find the threshold value because the complexity of
-k-means algorithm is very high. To find the global threshold value through
-Lloyd algorithm, one can simply set the number of level equal to 2.
-
 \begin{listing}
 \begin{verbatim}
 # Image 6, 7 
@@ -209,6 +215,12 @@ im_final = pp.gray_level_window_slice(im_original_gray, t, [0, 255])
 \caption{List 6: Setting For Image 6, 7}
 \newline
 \end{listing}
+
+Image 6 and 7 can be processed by global threshold method. One way to find the
+global threshold value is k-means algorithm. However, the time complexity of
+k-means is much high. To decrease the time complexity, what I found is that
+the Lloyd algorithm can also be used to find the threshold value by simply
+setting the number of level in Lloyd algorithm to 2.
 
 \begin{listing}
 \begin{verbatim}
@@ -296,10 +308,12 @@ def k_means_thresh(im_np, cluster=2):
 \includegraphics[width=0.49\textwidth]{img_7_output.png}
 \end{center}
 
-For image 8, after trying several different methods, finally it turns out the global
-threshold performing better. Because of the blurred text and un-even contrast
-distribution, it is difficult to apply global threshold directly. Firstly, the
-image should be resized to 4 times larger than the original size.
+To process image 8, which has blurred text and un-even contrast distribution,
+it is difficult to apply global threshold directly. However, the result is not
+satisfied even after performing contrast stretching, like what I do on
+image 9. To improve the image quality, firstly, it should be resized to 4
+times larger than the original size. Then it can be applied the global
+threshold method, which is implemented through Lloyd algorithm.
 
 \begin{listing}
 \begin{verbatim}
@@ -320,14 +334,16 @@ im_final = pp.gray_level_window_slice(im_step_1, t, [0, 255])
 \includegraphics[width=0.32\textwidth]{img_8_output_thresh.png}
 \end{center}
 
-Image 9 uses the way which is similar to that of image 4 and 5. Before Otsu's
-threshold, Matlab function 'stretchlim' and 'imadjust' need to be applied for
-contrast stretching. The 'rad' value of the Otsu's threshold function has to
-be set to 30 due to the noise on the image. However, a smaller window size can
-cause much more black spot on the output. One way to eliminate these black
-spot is applying a mask of the line of text. The mask is generated by line
-detection method. Firstly, I applied n-bit slicing on the original image.
-Next, a line detection kernel can be applied on the image to get the text line
+Image 9 uses the procedures which are similar to that of image 4 and 5 except
+the contrast stretching being applied first. Matlab function 'stretchlim' and
+'imadjust' is used for contrast stretching through Matlab Python API. The
+'rad' value of the Otsu's threshold function has to be set to 30 for better
+text resolution. However, as what I mentioned before, a smaller window size
+can cause much more black spot on the background due to the noise on the
+image. One way to eliminate these black spot is applying a mask of the line of
+text on the processed image. To generate the line mask, firstly, n-bit slicing
+is applied on the original image to extract the background pixels. Next, a
+line detection kernel can be applied on the image to get the text line
 position.
 
 \begin{listing}
@@ -406,7 +422,7 @@ def line_detector(im_np, direction='|'):
 def line_mask(im_np, im_np_original, window=4, eta=2):
     def _generate_mask():
         im_np_sliced = pp.n_bit_plane_slice(im_np_original, 1)
-        im_mask = np.uint8(line_detector(im_np_sliced, direction='+'))
+        im_mask = np.uint8(line_detector(im_np_sliced, direction='+')) // Use horizontal and vertical line mask 
         im_height, im_width = im_mask.shape
         thresh = eta * 255 / ((window * 2) ** 2)
         for m in range(window, im_height-window, window*2):
@@ -440,14 +456,13 @@ def line_mask(im_np, im_np_original, window=4, eta=2):
 \end{center}
 
 \section{Conclusion}
-\label{sec:org2a8659b}
+\label{sec:orgf4833ea}
 In summary, the processed images have better resolution for OCR, even though
 some small block of text area failed the test. After experimenting different
 methods, what I found is that n-bit slicing can handle most of the high
 contrast images. Local Otsu's threshold can eliminate shadow on image, however
-it also bring some side effect like the black spot. Global threshold has
-result similar to that of n-bit slicing but perform better on low illumination
-image.
+it also brings some side effect like the black spot. Global threshold has
+result similar to that of n-bit slicing.
 
 
 \addcontentsline{toc}{section}{References}

@@ -10,7 +10,7 @@ import filters as mf
 from scipy.misc import imresize
 
 IMAGE_PATH = [os.path.join(os.getcwd(), 'sample_data', 'Img{}.jpg'.format(i)) for i in range(1,12)]
-image_path = IMAGE_PATH[1]
+image_path = IMAGE_PATH[0]
 
 im = Image.open(image_path)
 im_original_color = pp.load_image_into_numpy_array(im)
@@ -40,19 +40,23 @@ def plot_multi_img(titles, images, grid):
 
 # histshow(im_original_gray)
 # imshow(im_original_gray)
+fig_hist = plt.figure()
+plt.hist(im_original_gray.flatten(), 256, [0,255],fc='k',ec='k')
+plt.title('Image 1 Histogram')
+fig_hist.savefig('./export/img_1_hist.png', format='png', dpi=600)
 
-im_np_gray_f = ft.img2fft(im_original_gray)
-mag = ft.mag_resp(im_np_gray_f)
-imshow(mag)
+# im_np_gray_f = ft.img2fft(im_original_gray)
+# mag = ft.mag_resp(im_np_gray_f)
+# imshow(mag)
 
 # im_np_filter = ft.filter2(im_np_gray_f, window_height=60, window_width=100)
-im_np_filter = ft.filter4(im_np_gray_f)
-mag1 = ft.mag_resp(im_np_filter)
-imshow(mag1)
-im_filtered = ft.fft2img(im_np_filter)
-imshow(im_filtered)
-im_final = pp.n_bit_plane_slice(im_filtered, 1)
-imshow(im_final)
+# im_np_filter = ft.filter4(im_np_gray_f)
+# mag1 = ft.mag_resp(im_np_filter)
+# imshow(mag1)
+# im_filtered = ft.fft2img(im_np_filter)
+# imshow(im_filtered)
+# im_final = pp.n_bit_plane_slice(im_filtered, 1)
+# imshow(im_final)
 
 
 # Image 1, 2, 3
