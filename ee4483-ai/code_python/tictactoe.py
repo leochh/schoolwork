@@ -12,7 +12,6 @@ def writeBoard(gameboard):
         gameGraph.append(_line)
     return gameGraph
 
-
 # def readBoard(input_line):
 #     line = list(input_line)
 #     for n,i in enumerate(line):
