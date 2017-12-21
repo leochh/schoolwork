@@ -23,6 +23,7 @@ def writeBoard(gameboard):
 #             line[n] = -1
 #     return line
 
+
 # Heuristic Evaluation Func
 def evalCurrentBoard(_cB):
 
