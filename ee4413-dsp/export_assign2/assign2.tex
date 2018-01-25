@@ -1,4 +1,4 @@
-% Created 2017-11-14 Tue 20:21
+% Created 2018-01-25 周四 16:55
 % Intended LaTeX compiler: pdflatex
 \documentclass[titlepage]{article}
 \usepackage[utf8]{inputenc}
@@ -41,7 +41,7 @@ REPORT \\
 [5\baselineskip]},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 25.1.1 (Org mode 9.1.2)}, 
+ pdfcreator={Emacs 25.3.1 (Org mode 9.1.4)}, 
  pdflang={English}}
 \begin{document}
 
@@ -53,7 +53,7 @@ REPORT \\
 \pagenumbering{arabic}
 
 \section{Introduction}
-\label{sec:org6d32b5f}
+\label{sec:org42a17d1}
 The Digital Signal Processor (DSP) used in this mini project is TI's TMS
 320C5515. C5515 is a 16-bit fixed-point processor and can be used for
 real-time digital signal processing applications such as Audio CODEC,
@@ -62,9 +62,9 @@ C5515 to implement a 3-band audio equalizer with graphical control via
 embedded button, LED and LCD.
 
 \section{Design And Implementation}
-\label{sec:org92ad5f8}
+\label{sec:org44bc1b6}
 \subsection{FIR Filter Coefficients Generation}
-\label{sec:orgc343eed}
+\label{sec:org72621ab}
 Fdatool in Matlab is used to obtain the coefficients of the FIR filter. To
 define the passband gain and stopband attenuation, constrained equal ripple
 method needs to be chosen. Even though the band edge frequency for three
@@ -84,7 +84,7 @@ length should be 16 bits, and Q15 format determines that the fraction length
 needs to be 15 bits.
 
 \subsection{Individual Band Gain Adjustment And Total Band Gain Calculation}
-\label{sec:orgcb542f3}
+\label{sec:org8db5a61}
 According to the associativity property of the Convolution, the
 implementation of multiple FIR filters of same order can be simplified into
 one FIR filter whose coefficients are the combined coefficients.
@@ -134,7 +134,7 @@ for(i=0;i<TAPS;i++){
 \end{listing}
 
 \subsection{Button And FIR Filter}
-\label{sec:orga0c9bd1}
+\label{sec:orge8d06d4}
 The implementation of button is similar to what have done in
 Ex.1 and Ex.2. For every running cycle, the main program is continue
 monitoring the push button condition. Each time when a button is pushed, the
@@ -167,7 +167,7 @@ fir(&x_left[0],&band_coef_mixed[0],&r_left[0],&dbuffer_left[0],1,TAPS);
 \end{listing}
 
 \subsection{LCD Implementation}
-\label{sec:org585c703}
+\label{sec:org7ecad9b}
 This device includes a LCD Interface Display Driver (LIDD) controller, which
 can be used for implementation of User Interface Menu Navigation. After
 initialization of the LCD display, it require the clear function to clean the
@@ -201,7 +201,7 @@ void set_plane(int i){
 \end{listing}
 
 \subsection{Timer Interrupt And LED Blinking}
-\label{sec:orga01479a}
+\label{sec:orgbd86568}
 To enable timer interrupt, IER0 and IFR0 have to be set. According to C5515
 DSP System Guide, the CPU has only one interrupt flag that is shared among
 the three timers. Since the interrupt flag is shared, software must have a
@@ -289,13 +289,13 @@ void Timer_setup()
 
 
 \section{Conclusion}
-\label{sec:orgdc3e846}
+\label{sec:org12e5015}
 In summary, the design and the implementation meet the requirement of this
 project. The Audio CODEC function block works compatibly with the button, LCD,
 LED, and Timer Interrupt.
 
 
 \section{Appendix}
-\label{sec:org14fdefb}
+\label{sec:org98c98e5}
 Source Code: \url{https://github.com/seanhxx/schoolwork/tree/master/ee4413-dsp/assignment2}
 \end{document}
